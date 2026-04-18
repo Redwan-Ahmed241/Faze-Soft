@@ -297,7 +297,7 @@ Home | Services | Projects | About | Blog | Contact
 
 Replace lorem ipsum with actual brief content. Even 2-3 real sentences per post is better than lorem ipsum. Suggested real blog titles:
 1. "How We Built a Healthcare Management System in 8 Weeks"
-2. "React vs Next.js: When to Use What in 2024"
+2. "React vs Next.js: When to Use What in 2026"
 3. "Our Tech Stack: Why We Choose Django + React"
 
 ---
