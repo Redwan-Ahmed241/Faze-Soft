@@ -4842,3 +4842,5 @@ html.is-animating .mil-menu-frame {
   transition-delay: 0.3s;
 }
 }
+
+/* Portfolio menu permanently removed from templates; no CSS hide needed */
