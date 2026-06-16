@@ -3122,7 +3122,7 @@ revievs
 }
 
 .mil-revi-pagination .swiper-pagination-bullet .mil-custom-dot.mil-slide-1 {
-  background-image: url(../img/faces/customers/1.jpg);
+  background-image: url("../img/faces/customers/Naiem Martin.jpeg");
 }
 
 .mil-revi-pagination .swiper-pagination-bullet .mil-custom-dot.mil-slide-2 {
@@ -4841,6 +4841,6 @@ html.is-animating .mil-menu-frame {
   -webkit-transition-delay: 0.3s;
   transition-delay: 0.3s;
 }
-}
+
 
 /* Portfolio menu permanently removed from templates; no CSS hide needed */
