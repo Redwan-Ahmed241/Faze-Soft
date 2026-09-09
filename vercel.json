@@ -1,5 +1,4 @@
-﻿{
-  "cleanUrls": true,
+{
   "rewrites": [
     { "source": "/", "destination": "/home-1.html" },
     { "source": "/ems", "destination": "https://faze-soft-ems.vercel.app/" },
