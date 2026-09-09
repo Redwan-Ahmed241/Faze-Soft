@@ -15,17 +15,18 @@
     }
 
     function setActiveNav() {
-        var page = location.pathname.split('/').pop() || 'home-1.html';
+        var rawPage = location.pathname.split('/').pop() || 'home-1';
+        var page = rawPage.replace(/\.html$/, '');
 
         var map = {
-            'home': ['home-1.html', 'home-2.html'],
-            'portfolio': ['portfolio-1.html', 'portfolio-2.html', 'portfolio-3.html'],
-            'services': ['services.html', 'service.html'],
-            'products': ['products.html'],
-            'newsletter': ['blog.html', 'blog-1.html', 'blog-2.html', 'blog-3.html',
-                'blog-4.html', 'blog-5.html', 'blog-6.html', 'blog-7.html',
-                'blog-8.html', 'blog-9.html', 'blog-10.html', 'publication.html'],
-            'other': ['team.html', 'contact.html', '404.html']
+            'home': ['home-1', 'home-2'],
+            'portfolio': ['portfolio-1', 'portfolio-2', 'portfolio-3'],
+            'services': ['services', 'service'],
+            'products': ['products'],
+            'portal': ['client-portal', 'portal'],
+            'other': ['team', 'contact', 'blog', 'blog-1', 'blog-2', 'blog-3',
+                'blog-4', 'blog-5', 'blog-6', 'blog-7',
+                'blog-8', 'blog-9', 'blog-10', 'publication', '404']
         };
 
         var activeKey = null;

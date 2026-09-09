@@ -633,6 +633,100 @@ link
   transform: scale(1.15) rotate(180deg);
 }
 
+/* Keep client-portal arrows visible even when the shared SVG clone is not painted. */
+.mil-client-portal .mil-content .mil-arrow-place > svg {
+  display: none;
+}
+
+.mil-client-portal .mil-content .mil-link.mil-arrow-place::after,
+.mil-client-portal .mil-content .mil-button.mil-arrow-place::after {
+  content: "";
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-left: 15px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+}
+
+.mil-client-portal .mil-content .mil-arrow-place {
+  position: relative;
+}
+
+.mil-client-portal .mil-content .mil-link.mil-arrow-place::before,
+.mil-client-portal .mil-content .mil-button.mil-arrow-place::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: 14px;
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid rgb(255, 152, 0);
+  border-right: 2px solid rgb(255, 152, 0);
+  -webkit-transform: translateY(-50%) rotate(45deg);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.mil-client-portal .mil-content .mil-button.mil-arrow-place::before {
+  right: 16px;
+}
+
+.mil-client-portal .mil-content .mil-button.mil-icon-button-sm.mil-arrow-place::before {
+  right: auto;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-color: rgb(0, 0, 0);
+}
+
+.mil-client-portal .mil-content .mil-button.mil-arrow-place::after {
+  margin-left: 24px;
+  width: 46px;
+  height: 46px;
+  background-color: rgb(0, 0, 0);
+}
+
+.mil-client-portal .mil-content .mil-button.mil-icon-button-sm.mil-arrow-place::after {
+  margin-left: 0;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(255, 152, 0);
+  color: rgb(0, 0, 0);
+}
+
+.mil-client-portal .mil-content .mil-arrow-place:hover::after {
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+}
+
+.mil-client-portal .mil-content .mil-arrow-place.mil-down-arrow::after {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.mil-client-portal .mil-content .mil-arrow-place.mil-down-arrow::before {
+  -webkit-transform: translateY(-50%) rotate(135deg);
+  transform: translateY(-50%) rotate(135deg);
+}
+
+.mil-client-portal .mil-content .mil-arrow-place.mil-down-arrow:hover::after {
+  -webkit-transform: scale(1.15) rotate(90deg);
+  transform: scale(1.15) rotate(90deg);
+}
+
 /* -------------------------------------------
 
 button
@@ -682,11 +776,12 @@ button
 }
 
 .mil-button svg {
-  margin-left: 30px;
+  flex-shrink: 0;
+  margin-left: 24px;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  padding: 10px;
+  width: 46px;
+  height: 46px;
+  padding: 11px;
   background-color: rgb(0, 0, 0);
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
@@ -707,6 +802,17 @@ button
 .mil-button.mil-icon-button-sm {
   padding: 0;
   height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .mil-button.mil-icon-button-sm svg {
@@ -715,7 +821,7 @@ button
 }
 
 .mil-button.mil-icon-button-sm svg path {
-  fill: rgb(0, 0, 0);
+  fill: #000000 !important;
 }
 
 .mil-button:hover {
@@ -754,7 +860,20 @@ button
   }
 
   .mil-button svg {
-    margin-left: 25px;
+    margin-left: 20px;
+    width: 38px;
+    height: 38px;
+    padding: 9px;
+  }
+
+  .mil-client-portal .mil-content .mil-button.mil-arrow-place::after {
+    margin-left: 20px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .mil-client-portal .mil-content .mil-button.mil-arrow-place::before {
+    right: 14px;
   }
 
   .mil-button.mil-nav-cta {
@@ -3503,20 +3622,20 @@ footer
   height: 100%;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.1);
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 2px;
   border: none;
   border-radius: 70px;
-  padding: 0 0 0 50px;
+  padding: 0 65px 0 35px;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
 }
 
 .mil-subscribe-form input::-webkit-input-placeholder {
-  color: rgb(128, 128, 128);
+  color: rgba(255, 255, 255, 0.45);
   font-family: "Outfit", sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -3525,7 +3644,7 @@ footer
 }
 
 .mil-subscribe-form input::-moz-placeholder {
-  color: rgb(128, 128, 128);
+  color: rgba(255, 255, 255, 0.45);
   font-family: "Outfit", sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -3534,7 +3653,7 @@ footer
 }
 
 .mil-subscribe-form input:-ms-input-placeholder {
-  color: rgb(128, 128, 128);
+  color: rgba(255, 255, 255, 0.45);
   font-family: "Outfit", sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -3543,7 +3662,7 @@ footer
 }
 
 .mil-subscribe-form input::-ms-input-placeholder {
-  color: rgb(128, 128, 128);
+  color: rgba(255, 255, 255, 0.45);
   font-family: "Outfit", sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -3552,7 +3671,7 @@ footer
 }
 
 .mil-subscribe-form input::placeholder {
-  color: rgb(128, 128, 128);
+  color: rgba(255, 255, 255, 0.45);
   font-family: "Outfit", sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -3561,12 +3680,12 @@ footer
 }
 
 .mil-subscribe-form input:focus {
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.15);
   outline: inherit;
 }
 
 .mil-subscribe-form input:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 .mil-subscribe-form .mil-button {

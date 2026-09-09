@@ -1973,18 +1973,18 @@ footer
         height: 100%;
         width: 100%;
         background-color: $lt-10;
-        color: $dark;
+        color: $light;
         font-size: 12px;
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 2px;
         border: none;
         border-radius: 70px;
-        padding: 0 0 0 50px;
+        padding: 0 65px 0 35px;
         transition: $t-md;
 
         &::placeholder {
-            color: $gs-50;
+            color: $lt-40;
             font-family: $font-1;
             font-size: 12px;
             font-weight: 500;
@@ -1993,12 +1993,12 @@ footer
         }
 
         &:focus {
-            background-color: $light;
+            background-color: rgba(255, 255, 255, 0.15);
             outline: inherit;
         }
 
         &:hover {
-            background-color: $light;
+            background-color: rgba(255, 255, 255, 0.12);
         }
     }
 
