@@ -13,7 +13,8 @@ $(function () {
         containers: ['#swupMain', '#swupMenu'],
         animateHistoryBrowsing: true,
         linkSelector: 'a:not([data-no-swup]):not([target="_blank"]):not([href^="http://"]):not([href^="https://"]):not([href^="mailto:"]):not([href^="tel:"]):not([href^="#"])',
-        animationSelector: '[class="mil-main-transition"]'
+        animationSelector: '[class="mil-main-transition"]',
+        cache: false
     };
     const swup = new Swup(options);
 
