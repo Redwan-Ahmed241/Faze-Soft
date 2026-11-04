@@ -1141,7 +1141,9 @@ with the message pre-filled, so no enquiry is ever lost.
             showStatus(form, 'success', msg);
             form.reset();
             if (btnLabel) btnLabel.textContent = kind === 'newsletter' ? originalLabel : 'Sent';
-        }).catch(function () {
+        }).catch(function (err) {
+            // Shows FormSubmit's reason (e.g. "This form needs Activation") in the browser console
+            if (window.console) console.warn('[FazeSoft form] submission failed:', err && err.message);
             showStatus(form, 'error', 'We couldn\'t send that automatically. <a href="' + mailtoFallback(kind, data) +
                 '">Click here to send it from your email app</a> or write to us at <a href="mailto:' + INBOX + '">' + INBOX + '</a>.');
             if (btnLabel) btnLabel.textContent = originalLabel;
