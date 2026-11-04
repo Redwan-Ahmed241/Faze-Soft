@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
 
@@ -19,6 +19,9 @@
     <link rel="manifest" href="site.webmanifest">
 
     <!-- bootstrap grid css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..700&display=swap">
     <link rel="stylesheet" href="css/plugins/bootstrap-grid.css">
     <!-- font awesome css -->
     <link rel="stylesheet" href="css/plugins/font-awesome.min.css">
@@ -31,6 +34,77 @@
     <!-- page name -->
     <title>Why Platform Engineering Improves Developer Productivity | FazeSoft Blog</title>
     <link rel="canonical" href="https://www.fazesoft.com/blog-10">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#000000">
+    <meta property="og:site_name" content="FazeSoft">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Why Platform Engineering Improves Developer Productivity | FazeSoft Blog">
+    <meta property="og:description" content="How internal developer platforms (IDPs) reduce cognitive load and accelerate deployment cycles across engineering organizations.">
+    <meta property="og:url" content="https://www.fazesoft.com/blog-10">
+    <meta property="og:image" content="https://www.fazesoft.com/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="FazeSoft - Software &amp; AI Development Company">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why Platform Engineering Improves Developer Productivity | FazeSoft Blog">
+    <meta name="twitter:description" content="How internal developer platforms (IDPs) reduce cognitive load and accelerate deployment cycles across engineering organizations.">
+    <meta name="twitter:image" content="https://www.fazesoft.com/img/og-image.jpg">
+    <meta property="article:published_time" content="2026-04-20">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Why Platform Engineering Improves Developer Productivity",
+      "description": "How internal developer platforms (IDPs) reduce cognitive load and accelerate deployment cycles across engineering organizations.",
+      "image": "https://www.fazesoft.com/img/og-image.jpg",
+      "datePublished": "2026-04-20",
+      "dateModified": "2026-04-20",
+      "author": {
+        "@type": "Organization",
+        "name": "FazeSoft Team",
+        "url": "https://www.fazesoft.com/"
+      },
+      "publisher": {
+        "@id": "https://www.fazesoft.com/#organization"
+      },
+      "mainEntityOfPage": "https://www.fazesoft.com/blog-10",
+      "inLanguage": "en"
+    },
+    {
+      "@id": "https://www.fazesoft.com/#organization",
+      "@type": "Organization",
+      "name": "FazeSoft",
+      "url": "https://www.fazesoft.com/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.fazesoft.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.fazesoft.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Why Platform Engineering Improves Developer Productivity",
+          "item": "https://www.fazesoft.com/blog-10"
+        }
+      ]
+    }
+  ]
+}
+    </script>
 
 </head>
 
@@ -80,7 +154,7 @@
         <div class="mil-menu-frame">
             <!-- frame clone -->
             <div class="mil-frame-top">
-                <a href="home-1" class="mil-logo">FS.</a>
+                <a href="/" class="mil-logo">FS.</a>
                 <div class="mil-menu-btn">
                     <span></span>
                 </div>
@@ -96,7 +170,7 @@
                                     <li class="mil-has-children" data-nav="home">
                                         <a href="#.">Homepage</a>
                                         <ul>
-                                            <li><a href="home-1">Landing page</a></li>
+                                            <li><a href="/">Landing page</a></li>
                                             <li><a href="home-2">Personal</a></li>
                                             <li><a href="portfolio-3">Portfolio slider</a></li>
                                         </ul>
@@ -249,7 +323,7 @@
         <!-- frame -->
         <div class="mil-frame">
             <div class="mil-frame-top">
-                <a href="home-1" class="mil-logo">FS.</a>
+                <a href="/" class="mil-logo">FS.</a>
                 <div class="mil-menu-btn">
                     <span></span>
                 </div>
@@ -274,12 +348,12 @@
                     <div class="mil-banner-content mil-center mil-up">
                         <div class="container">
                             <ul class="mil-breadcrumbs mil-center mil-mb-60">
-                                <li><a href="home-1">Homepage</a></li>
+                                <li><a href="/">Homepage</a></li>
                                 <li><a href="blog">Blog</a></li>
                                 <li><a href="blog">Publication</a></li>
                             </ul>
-                            <h2>Why Platform Engineering Improves <span class="mil-thin">Developer</span><br>
-                                Productivity at <span class="mil-thin">Scale</span></h2>
+                            <h1 class="mil-h2">Why Platform Engineering Improves <span class="mil-thin">Developer</span><br>
+                                Productivity at <span class="mil-thin">Scale</span></h1>
                         </div>
                     </div>
                 </div>
@@ -421,10 +495,11 @@
 
                                     <p class="mil-light-soft mil-up mil-mb-30">Subscribe to our newsletter:</p>
 
-                                    <form class="mil-subscribe-form mil-up">
-                                        <input type="text" placeholder="Enter our email">
+                                    <form class="mil-subscribe-form mil-up" data-fs-form="newsletter" novalidate>
+                                        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="mil-hp">
+                                        <input type="email" name="email" required autocomplete="email" aria-label="Your email address" placeholder="Enter your email">
                                         <button type="submit"
-                                            class="mil-button mil-icon-button-sm mil-arrow-place"></button>
+                                            class="mil-button mil-icon-button-sm mil-arrow-place" aria-label="Subscribe"></button>
                                     </form>
 
                                 </div>
@@ -435,7 +510,7 @@
                                             <nav class="mil-footer-menu mil-mb-60">
                                                 <ul>
                                                     <li class="mil-up mil-active">
-                                                        <a href="home-1">Home</a>
+                                                        <a href="/">Home</a>
                                                     </li>
                                                     <!-- Portfolio removed -->
                                                     <li class="mil-up">

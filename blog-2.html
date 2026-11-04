@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
 
@@ -19,6 +19,9 @@
     <link rel="manifest" href="site.webmanifest">
 
     <!-- bootstrap grid css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..700&display=swap">
     <link rel="stylesheet" href="css/plugins/bootstrap-grid.css">
     <!-- font awesome css -->
     <link rel="stylesheet" href="css/plugins/font-awesome.min.css">
@@ -31,6 +34,76 @@
     <!-- page name -->
     <title>What Makes an ML Model Production-Ready | FazeSoft Blog</title>
     <link rel="canonical" href="https://www.fazesoft.com/blog-2">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#000000">
+    <meta property="og:site_name" content="FazeSoft">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="What Makes an ML Model Production-Ready | FazeSoft Blog">
+    <meta property="og:description" content="Key criteria for moving machine learning models from Jupyter notebooks to resilient, monitored production microservices.">
+    <meta property="og:url" content="https://www.fazesoft.com/blog-2">
+    <meta property="og:image" content="https://www.fazesoft.com/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="FazeSoft - Software &amp; AI Development Company">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Makes an ML Model Production-Ready | FazeSoft Blog">
+    <meta name="twitter:description" content="Key criteria for moving machine learning models from Jupyter notebooks to resilient, monitored production microservices.">
+    <meta name="twitter:image" content="https://www.fazesoft.com/img/og-image.jpg">
+    <meta property="article:published_time" content="2026-02-27">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "What Makes an ML Model Production-Ready",
+      "description": "Key criteria for moving machine learning models from Jupyter notebooks to resilient, monitored production microservices.",
+      "image": "https://www.fazesoft.com/img/og-image.jpg",
+      "datePublished": "2026-02-27",
+      "dateModified": "2026-02-27",
+      "author": {
+        "@type": "Person",
+        "name": "Andrew Ng"
+      },
+      "publisher": {
+        "@id": "https://www.fazesoft.com/#organization"
+      },
+      "mainEntityOfPage": "https://www.fazesoft.com/blog-2",
+      "inLanguage": "en"
+    },
+    {
+      "@id": "https://www.fazesoft.com/#organization",
+      "@type": "Organization",
+      "name": "FazeSoft",
+      "url": "https://www.fazesoft.com/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.fazesoft.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.fazesoft.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "What Makes an ML Model Production-Ready",
+          "item": "https://www.fazesoft.com/blog-2"
+        }
+      ]
+    }
+  ]
+}
+    </script>
 
 </head>
 
@@ -80,7 +153,7 @@
         <div class="mil-menu-frame">
             <!-- frame clone -->
             <div class="mil-frame-top">
-                <a href="home-1" class="mil-logo">FS.</a>
+                <a href="/" class="mil-logo">FS.</a>
                 <div class="mil-menu-btn">
                     <span></span>
                 </div>
@@ -96,7 +169,7 @@
                                     <li class="mil-has-children" data-nav="home">
                                         <a href="#.">Homepage</a>
                                         <ul>
-                                            <li><a href="home-1">Landing page</a></li>
+                                            <li><a href="/">Landing page</a></li>
                                             <li><a href="home-2">Personal</a></li>
                                             <li><a href="portfolio-3">Portfolio slider</a></li>
                                         </ul>
@@ -242,341 +315,389 @@
         <!-- menu end -->
 
         <!-- curtain -->
-        <!-- Right column removed (Projects / Useful links / Bangladesh / Global) -->
+        <div class="mil-curtain"></div>
+        <!-- curtain end -->
 
-        <div class="mil-info mil-up mil-mb-90">
+        <!-- frame -->
+        <div class="mil-frame">
+            <div class="mil-frame-top">
+                <a href="/" class="mil-logo">FS.</a>
+                <div class="mil-menu-btn">
+                    <span></span>
+                </div>
+            </div>
+            <div class="mil-frame-bottom">
+                <div class="mil-current-page"></div>
+                <div class="mil-back-to-top">
+                    <a href="#top" class="mil-link mil-dark mil-arrow-place">
+                        <span>Back to top</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- frame end -->
+
+        <!-- content -->
+        <div class="mil-content">
+            <div id="swupMain" class="mil-main-transition">
+
+                <!-- banner -->
+                <div class="mil-inner-banner">
+                    <div class="mil-banner-content mil-center mil-up">
+                        <div class="container">
+                            <ul class="mil-breadcrumbs mil-center mil-mb-60">
+                                <li><a href="/">Homepage</a></li>
+                                <li><a href="blog">Blog</a></li>
+                                <li><a href="blog">Publication</a></li>
+                            </ul>
+                            <h1 class="mil-h2">What Makes an <span class="mil-thin">ML Model</span><br> <span class="mil-thin">Production-Ready</span></h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- banner end -->
+
+                <!-- publication -->
+                <section id="blog">
+                    <div class="container mil-p-120-90">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-12">
+
+                                <div class="mil-info mil-up mil-mb-90">
             <div>Category: &nbsp;<span class="mil-dark">Machine Learning</span></div>
             <div>Date: &nbsp;<span class="mil-dark">February 27, 2026</span></div>
             <div>Author: &nbsp;<span class="mil-dark">Andrew Ng</span></div>
         </div>
 
-    </div>
-    <div class="col-lg-8">
-
-        <p class="mil-text-xl mil-dark mil-up mil-mb-60">High model accuracy in a notebook does not guarantee business
-            value in production. Real systems must handle noisy inputs, feature drift, and changing user behavior.</p>
-
-        <blockquote class="mil-up mil-mb-60">"Operational excellence is what turns models into products."</blockquote>
-
-        <h5 class="mil-up mil-mb-30">Design for Reproducibility</h5>
-        <p class="mil-up mil-mb-60">Production ML starts with reproducible pipelines for data, training, and evaluation.
-            Versioned datasets and model artifacts make outcomes auditable and easier to improve.</p>
-
-        <h5 class="mil-up mil-mb-30">Monitor More Than Accuracy</h5>
-        <p class="mil-up mil-mb-60">Teams should monitor latency, failure rates, and business KPIs alongside model
-            metrics. These signals reveal whether predictions remain useful in real-world workloads.</p>
-
-        <h5 class="mil-up mil-mb-30">Plan Safe Deployments</h5>
-        <p class="mil-up mil-mb-60">Canary releases and rollback-ready deployment patterns reduce risk during updates.
-            Controlled rollout is essential when model behavior can change rapidly after release.</p>
-
-        <h5 class="mil-up mil-mb-30">Build Continuous Feedback Loops</h5>
-        <p class="mil-up mil-mb-60">Capture user feedback and outcome data to retrain with confidence. Strong feedback
-            loops help teams respond quickly to drift and performance degradation.</p>
-
-        <p class="mil-up mil-mb-60">Production-ready ML is less about one perfect model and more about a resilient
-            operating system around it. Teams that invest in reliability scale value faster.</p>
-
-        <blockquote class="mil-up mil-mb-60">
-            "In machine learning, deployment is where the real product begins."
-        </blockquote>
-
-        <p class="mil-up mil-mb-30">MLOps investment creates consistent quality across teams and release cycles. It also
-            lowers the cost of experimentation at scale.</p>
-
-        <p class="mil-up mil-mb-30">Organizations that treat ML as an end-to-end engineering discipline turn promising
-            prototypes into dependable, high-impact products.</p>
-
-    </div>
-    </div>
-    </div>
-    </section>
-    <!-- publication end -->
-
-    <!-- similar -->
-    <section class="mil-soft-bg">
-        <div class="container mil-p-120-60">
-            <div class="row align-items-center mil-mb-30">
-                <div class="col-lg-6 mil-mb-30">
-                    <h3 class="mil-up">Similar Publications:</h3>
-                </div>
-                <div class="col-lg-6 mil-mb-30">
-                    <div class="mil-adaptive-right mil-up">
-                        <a href="blog" class="mil-link mil-dark mil-arrow-place">
-                            <span>View all</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-
-                    <a href="blog-3" class="mil-blog-card mil-mb-60">
-                        <div class="mil-post-descr">
-                            <div class="mil-labels mil-up mil-mb-30">
-                                <div class="mil-label mil-upper mil-accent">SOFTWARE ENGINEERING</div>
-                                <div class="mil-label mil-upper">January 30, 2026</div>
-                            </div>
-                            <h4 class="mil-up mil-mb-30">Building Reliable Microservices Without Overengineering
-                            </h4>
-                            <p class="mil-post-text mil-up mil-mb-30">Microservices can improve team autonomy, but
-                                complexity rises quickly when boundaries are unclear. Many failures are caused by
-                                premature decomposition.</p>
-                            <div class="mil-link mil-dark mil-arrow-place mil-up">
-                                <span>Read more</span>
-                            </div>
-                        </div>
-                    </a>
-
-                </div>
-                <div class="col-lg-6">
-
-                    <a href="blog-4" class="mil-blog-card mil-mb-60">
-                        <div class="mil-post-descr">
-                            <div class="mil-labels mil-up mil-mb-30">
-                                <div class="mil-label mil-upper mil-accent">WEB DEVELOPMENT</div>
-                                <div class="mil-label mil-upper">April 6, 2026</div>
-                            </div>
-                            <h4 class="mil-up mil-mb-30">Modern Frontend Performance Beyond Lighthouse Scores
-                            </h4>
-                            <p class="mil-post-text mil-up mil-mb-30">Many teams optimize for synthetic benchmarks but
-                                miss the bottlenecks users feel in daily interactions. Real performance strategy starts
-                                with field data, not only lab scores.</p>
-                            <div class="mil-link mil-dark mil-arrow-place mil-up">
-                                <span>Read more</span>
-                            </div>
-                        </div>
-                    </a>
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- similar end -->
-
-    <!-- footer -->
-    <footer class="mil-dark-bg">
-        <div class="mi-invert-fix">
-            <div class="container mil-p-120-60">
-                <div class="row justify-content-between">
-                    <div class="col-md-4 col-lg-4 mil-mb-60">
-
-                        <div class="mil-muted mil-logo mil-up mil-mb-30">FazeSoft.</div>
-
-                        <p class="mil-light-soft mil-up mil-mb-30">Subscribe to our newsletter:</p>
-
-                        <form class="mil-subscribe-form mil-up">
-                            <input type="text" placeholder="Enter our email">
-                            <button type="submit" class="mil-button mil-icon-button-sm mil-arrow-place"></button>
-                        </form>
-
-                    </div>
-                    <div class="col-md-7 col-lg-6">
-                        <div class="row justify-content-end">
-                            <div class="col-md-6 col-lg-7">
-
-                                <nav class="mil-footer-menu mil-mb-60">
-                                    <ul>
-                                        <li class="mil-up mil-active">
-                                            <a href="home-1">Home</a>
-                                        </li>
-                                        <!-- Portfolio removed -->
-                                        <li class="mil-up">
-                                            <a href="services">Services</a>
-                                        </li>
-                                                    <li class="mil-up">
-                                                        <a href="client-portal">Client Portal</a>
-                                                    </li>
-                                        <li class="mil-up">
-                                            <a href="contact">Contact</a>
-                                        </li>
-                                        <li class="mil-up">
-                                            <a href="blog">Blog</a>
-                                        </li>
-                                    </ul>
-                                </nav>
 
                             </div>
-                            <div class="col-md-6 col-lg-5">
+                            <div class="col-lg-8">
 
-                                <ul class="mil-menu-list mil-up mil-mb-60">
-                                    <li><a href="#." class="mil-light-soft">Privacy Policy</a></li>
-                                    <li><a href="#." class="mil-light-soft">Terms and conditions</a></li>
-                                    <li><a href="#." class="mil-light-soft">Cookie Policy</a></li>
-                                    <li><a href="#." class="mil-light-soft">Careers</a></li>
-                                </ul>
+                <p class="mil-text-xl mil-dark mil-up mil-mb-60">High model accuracy in a notebook does not guarantee business
+                    value in production. Real systems must handle noisy inputs, feature drift, and changing user behavior.</p>
+
+                <blockquote class="mil-up mil-mb-60">"Operational excellence is what turns models into products."</blockquote>
+
+                <h5 class="mil-up mil-mb-30">Design for Reproducibility</h5>
+                <p class="mil-up mil-mb-60">Production ML starts with reproducible pipelines for data, training, and evaluation.
+                    Versioned datasets and model artifacts make outcomes auditable and easier to improve.</p>
+
+                <h5 class="mil-up mil-mb-30">Monitor More Than Accuracy</h5>
+                <p class="mil-up mil-mb-60">Teams should monitor latency, failure rates, and business KPIs alongside model
+                    metrics. These signals reveal whether predictions remain useful in real-world workloads.</p>
+
+                <h5 class="mil-up mil-mb-30">Plan Safe Deployments</h5>
+                <p class="mil-up mil-mb-60">Canary releases and rollback-ready deployment patterns reduce risk during updates.
+                    Controlled rollout is essential when model behavior can change rapidly after release.</p>
+
+                <h5 class="mil-up mil-mb-30">Build Continuous Feedback Loops</h5>
+                <p class="mil-up mil-mb-60">Capture user feedback and outcome data to retrain with confidence. Strong feedback
+                    loops help teams respond quickly to drift and performance degradation.</p>
+
+                <p class="mil-up mil-mb-60">Production-ready ML is less about one perfect model and more about a resilient
+                    operating system around it. Teams that invest in reliability scale value faster.</p>
+
+                <blockquote class="mil-up mil-mb-60">
+                    "In machine learning, deployment is where the real product begins."
+                </blockquote>
+
+                <p class="mil-up mil-mb-30">MLOps investment creates consistent quality across teams and release cycles. It also
+                    lowers the cost of experimentation at scale.</p>
+
+                <p class="mil-up mil-mb-30">Organizations that treat ML as an end-to-end engineering discipline turn promising
+                    prototypes into dependable, high-impact products.</p>
 
                             </div>
                         </div>
                     </div>
+                </section>
+                <!-- publication end -->
+
+                <!-- similar -->
+            <section class="mil-soft-bg">
+                <div class="container mil-p-120-60">
+                    <div class="row align-items-center mil-mb-30">
+                        <div class="col-lg-6 mil-mb-30">
+                            <h3 class="mil-up">Similar Publications:</h3>
+                        </div>
+                        <div class="col-lg-6 mil-mb-30">
+                            <div class="mil-adaptive-right mil-up">
+                                <a href="blog" class="mil-link mil-dark mil-arrow-place">
+                                    <span>View all</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <a href="blog-3" class="mil-blog-card mil-mb-60">
+                                <div class="mil-post-descr">
+                                    <div class="mil-labels mil-up mil-mb-30">
+                                        <div class="mil-label mil-upper mil-accent">SOFTWARE ENGINEERING</div>
+                                        <div class="mil-label mil-upper">January 30, 2026</div>
+                                    </div>
+                                    <h4 class="mil-up mil-mb-30">Building Reliable Microservices Without Overengineering
+                                    </h4>
+                                    <p class="mil-post-text mil-up mil-mb-30">Microservices can improve team autonomy, but
+                                        complexity rises quickly when boundaries are unclear. Many failures are caused by
+                                        premature decomposition.</p>
+                                    <div class="mil-link mil-dark mil-arrow-place mil-up">
+                                        <span>Read more</span>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="col-lg-6">
+
+                            <a href="blog-4" class="mil-blog-card mil-mb-60">
+                                <div class="mil-post-descr">
+                                    <div class="mil-labels mil-up mil-mb-30">
+                                        <div class="mil-label mil-upper mil-accent">WEB DEVELOPMENT</div>
+                                        <div class="mil-label mil-upper">April 6, 2026</div>
+                                    </div>
+                                    <h4 class="mil-up mil-mb-30">Modern Frontend Performance Beyond Lighthouse Scores
+                                    </h4>
+                                    <p class="mil-post-text mil-up mil-mb-30">Many teams optimize for synthetic benchmarks but
+                                        miss the bottlenecks users feel in daily interactions. Real performance strategy starts
+                                        with field data, not only lab scores.</p>
+                                    <div class="mil-link mil-dark mil-arrow-place mil-up">
+                                        <span>Read more</span>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
                 </div>
+            </section>
+            <!-- similar end -->
 
-                <div class="row justify-content-between flex-sm-row-reverse">
-                    <div class="col-md-7 col-lg-6">
-
+            <!-- footer -->
+            <footer class="mil-dark-bg">
+                <div class="mi-invert-fix">
+                    <div class="container mil-p-120-60">
                         <div class="row justify-content-between">
+                            <div class="col-md-4 col-lg-4 mil-mb-60">
 
-                            <div class="col-md-6 col-lg-5 mil-mb-60">
+                                <div class="mil-muted mil-logo mil-up mil-mb-30">FazeSoft.</div>
 
-                                <h6 class="mil-muted mil-up mil-mb-30">Bangladesh</h6>
+                                <p class="mil-light-soft mil-up mil-mb-30">Subscribe to our newsletter:</p>
 
-                                <p class="mil-light-soft mil-up">Dhaka, Bangladesh <span class="mil-no-wrap">+880
-                                        1793-268944</span></p>
-
-                            </div>
-                            <div class="col-md-6 col-lg-5 mil-mb-60">
-
-                                <h6 class="mil-muted mil-up mil-mb-30">Global</h6>
-
-                                <p class="mil-light-soft mil-up">Available Worldwide <span
-                                        class="mil-no-wrap">fazesoft.2024@gmail.com</span></p>
+                                <form class="mil-subscribe-form mil-up" data-fs-form="newsletter" novalidate>
+                                        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="mil-hp">
+                                        <input type="email" name="email" required autocomplete="email" aria-label="Your email address" placeholder="Enter your email">
+                                    <button type="submit" class="mil-button mil-icon-button-sm mil-arrow-place" aria-label="Subscribe"></button>
+                                </form>
 
                             </div>
-                        </div>
+                            <div class="col-md-7 col-lg-6">
+                                <div class="row justify-content-end">
+                                    <div class="col-md-6 col-lg-7">
 
-                    </div>
-                    <div class="col-md-4 col-lg-6 mil-mb-60">
-
-                        <div class="mil-vert-between">
-                                        <div class="mil-mb-30">
-                                            <ul class="mil-social-icons mil-up">
-                                                <li><a href="https://www.facebook.com/people/Faze-Soft/61574109650637/" target="_blank" rel="noopener noreferrer" data-no-swup class="social-icon"> <i
-                                                            class="fab fa-facebook-f"></i></a></li>
-                                                <li><a href="https://www.linkedin.com/company/fazesoft/?viewAsMember=true" target="_blank" rel="noopener noreferrer" data-no-swup class="social-icon"> <i
-                                                            class="fab fa-linkedin-in"></i></a></li>
+                                        <nav class="mil-footer-menu mil-mb-60">
+                                            <ul>
+                                                <li class="mil-up mil-active">
+                                                    <a href="/">Home</a>
+                                                </li>
+                                                <!-- Portfolio removed -->
+                                                <li class="mil-up">
+                                                    <a href="services">Services</a>
+                                                </li>
+                                                            <li class="mil-up">
+                                                                <a href="client-portal">Client Portal</a>
+                                                            </li>
+                                                <li class="mil-up">
+                                                    <a href="contact">Contact</a>
+                                                </li>
+                                                <li class="mil-up">
+                                                    <a href="blog">Blog</a>
+                                                </li>
                                             </ul>
-                                        </div>
-                            <p class="mil-light-soft mil-up">© Copyright 2026 - FazeSoft. All Rights
-                                Reserved.</p>
+                                        </nav>
+
+                                    </div>
+                                    <div class="col-md-6 col-lg-5">
+
+                                        <ul class="mil-menu-list mil-up mil-mb-60">
+                                            <li><a href="#." class="mil-light-soft">Privacy Policy</a></li>
+                                            <li><a href="#." class="mil-light-soft">Terms and conditions</a></li>
+                                            <li><a href="#." class="mil-light-soft">Cookie Policy</a></li>
+                                            <li><a href="#." class="mil-light-soft">Careers</a></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
+                        <div class="row justify-content-between flex-sm-row-reverse">
+                            <div class="col-md-7 col-lg-6">
+
+                                <div class="row justify-content-between">
+
+                                    <div class="col-md-6 col-lg-5 mil-mb-60">
+
+                                        <h6 class="mil-muted mil-up mil-mb-30">Bangladesh</h6>
+
+                                        <p class="mil-light-soft mil-up">Dhaka, Bangladesh <span class="mil-no-wrap">+880
+                                                1793-268944</span></p>
+
+                                    </div>
+                                    <div class="col-md-6 col-lg-5 mil-mb-60">
+
+                                        <h6 class="mil-muted mil-up mil-mb-30">Global</h6>
+
+                                        <p class="mil-light-soft mil-up">Available Worldwide <span
+                                                class="mil-no-wrap">fazesoft.2024@gmail.com</span></p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-4 col-lg-6 mil-mb-60">
+
+                                <div class="mil-vert-between">
+                                                <div class="mil-mb-30">
+                                                    <ul class="mil-social-icons mil-up">
+                                                        <li><a href="https://www.facebook.com/people/Faze-Soft/61574109650637/" target="_blank" rel="noopener noreferrer" data-no-swup class="social-icon"> <i
+                                                                    class="fab fa-facebook-f"></i></a></li>
+                                                        <li><a href="https://www.linkedin.com/company/fazesoft/?viewAsMember=true" target="_blank" rel="noopener noreferrer" data-no-swup class="social-icon"> <i
+                                                                    class="fab fa-linkedin-in"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                    <p class="mil-light-soft mil-up">© Copyright 2026 - FazeSoft. All Rights
+                                        Reserved.</p>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </footer>
+            <!-- footer end -->
+
+                <!-- hidden elements -->
+                <div class="mil-hidden-elements">
+                    <div class="mil-dodecahedron">
+                        <div class="mil-pentagon">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="mil-pentagon">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="mil-pentagon">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="mil-pentagon">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="mil-pentagon">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="mil-pentagon">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="mil-pentagon">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="mil-pentagon">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="mil-pentagon">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="mil-pentagon">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="mil-pentagon">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="mil-pentagon">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="mil-arrow">
+                        <path
+                            d="M 14 5.3417969 C 13.744125 5.3417969 13.487969 5.4412187 13.292969 5.6367188 L 13.207031 5.7226562 C 12.816031 6.1136563 12.816031 6.7467188 13.207031 7.1367188 L 17.070312 11 L 4 11 C 3.448 11 3 11.448 3 12 C 3 12.552 3.448 13 4 13 L 17.070312 13 L 13.207031 16.863281 C 12.816031 17.254281 12.816031 17.887344 13.207031 18.277344 L 13.292969 18.363281 C 13.683969 18.754281 14.317031 18.754281 14.707031 18.363281 L 20.363281 12.707031 C 20.754281 12.316031 20.754281 11.682969 20.363281 11.292969 L 14.707031 5.6367188 C 14.511531 5.4412187 14.255875 5.3417969 14 5.3417969 z" />
+                    </svg>
+
+                    <svg width="250" viewBox="0 0 300 1404" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="mil-lines">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M1 892L1 941H299V892C299 809.71 232.29 743 150 743C67.7096 743 1 809.71 1 892ZM0 942H300V892C300 809.157 232.843 742 150 742C67.1573 742 0 809.157 0 892L0 942Z"
+                            class="mil-move" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M299 146V97L1 97V146C1 228.29 67.7096 295 150 295C232.29 295 299 228.29 299 146ZM300 96L0 96V146C0 228.843 67.1573 296 150 296C232.843 296 300 228.843 300 146V96Z"
+                            class="mil-move" />
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M299 1H1V1403H299V1ZM0 0V1404H300V0H0Z" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M150 -4.37115e-08L150 1404L149 1404L149 0L150 -4.37115e-08Z" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M150 1324C232.29 1324 299 1257.29 299 1175C299 1092.71 232.29 1026 150 1026C67.7096 1026 1 1092.71 1 1175C1 1257.29 67.7096 1324 150 1324ZM150 1325C232.843 1325 300 1257.84 300 1175C300 1092.16 232.843 1025 150 1025C67.1573 1025 0 1092.16 0 1175C0 1257.84 67.1573 1325 150 1325Z"
+                            class="mil-move" />
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M300 1175H0V1174H300V1175Z" class="mil-move" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M150 678C232.29 678 299 611.29 299 529C299 446.71 232.29 380 150 380C67.7096 380 1 446.71 1 529C1 611.29 67.7096 678 150 678ZM150 679C232.843 679 300 611.843 300 529C300 446.157 232.843 379 150 379C67.1573 379 0 446.157 0 529C0 611.843 67.1573 679 150 679Z"
+                            class="mil-move" />
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M299 380H1V678H299V380ZM0 379V679H300V379H0Z"
+                            class="mil-move" />
+                    </svg>
+                </div>
+                <!-- hidden elements end -->
+
             </div>
         </div>
-    </footer>
-    <!-- footer end -->
-
-    <!-- hidden elements -->
-    <div class="mil-hidden-elements">
-        <div class="mil-dodecahedron">
-            <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="mil-arrow">
-            <path
-                d="M 14 5.3417969 C 13.744125 5.3417969 13.487969 5.4412187 13.292969 5.6367188 L 13.207031 5.7226562 C 12.816031 6.1136563 12.816031 6.7467188 13.207031 7.1367188 L 17.070312 11 L 4 11 C 3.448 11 3 11.448 3 12 C 3 12.552 3.448 13 4 13 L 17.070312 13 L 13.207031 16.863281 C 12.816031 17.254281 12.816031 17.887344 13.207031 18.277344 L 13.292969 18.363281 C 13.683969 18.754281 14.317031 18.754281 14.707031 18.363281 L 20.363281 12.707031 C 20.754281 12.316031 20.754281 11.682969 20.363281 11.292969 L 14.707031 5.6367188 C 14.511531 5.4412187 14.255875 5.3417969 14 5.3417969 z" />
-        </svg>
-
-        <svg width="250" viewBox="0 0 300 1404" fill="none" xmlns="http://www.w3.org/2000/svg" class="mil-lines">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M1 892L1 941H299V892C299 809.71 232.29 743 150 743C67.7096 743 1 809.71 1 892ZM0 942H300V892C300 809.157 232.843 742 150 742C67.1573 742 0 809.157 0 892L0 942Z"
-                class="mil-move" />
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M299 146V97L1 97V146C1 228.29 67.7096 295 150 295C232.29 295 299 228.29 299 146ZM300 96L0 96V146C0 228.843 67.1573 296 150 296C232.843 296 300 228.843 300 146V96Z"
-                class="mil-move" />
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M299 1H1V1403H299V1ZM0 0V1404H300V0H0Z" />
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M150 -4.37115e-08L150 1404L149 1404L149 0L150 -4.37115e-08Z" />
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M150 1324C232.29 1324 299 1257.29 299 1175C299 1092.71 232.29 1026 150 1026C67.7096 1026 1 1092.71 1 1175C1 1257.29 67.7096 1324 150 1324ZM150 1325C232.843 1325 300 1257.84 300 1175C300 1092.16 232.843 1025 150 1025C67.1573 1025 0 1092.16 0 1175C0 1257.84 67.1573 1325 150 1325Z"
-                class="mil-move" />
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M300 1175H0V1174H300V1175Z" class="mil-move" />
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M150 678C232.29 678 299 611.29 299 529C299 446.71 232.29 380 150 380C67.7096 380 1 446.71 1 529C1 611.29 67.7096 678 150 678ZM150 679C232.843 679 300 611.843 300 529C300 446.157 232.843 379 150 379C67.1573 379 0 446.157 0 529C0 611.843 67.1573 679 150 679Z"
-                class="mil-move" />
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M299 380H1V678H299V380ZM0 379V679H300V379H0Z"
-                class="mil-move" />
-        </svg>
-    </div>
-    <!-- hidden elements end -->
-
-    </div>
-    </div>
-    <!-- content -->
+        <!-- content -->
     </div>
     <!-- wrapper end -->
 

@@ -94,20 +94,25 @@ $(function () {
         },
     }, "-=1");
 
+    function scrollToHash(hash, duration) {
+        if (!hash || hash.length < 2 || hash === '#.') return false;
+        var el = document.getElementById(decodeURIComponent(hash.slice(1)));
+        if (!el) return false;
+        var offset = $(window).width() < 1200 ? 90 : 0;
+        $('html, body').animate({
+            scrollTop: $(el).offset().top - offset
+        }, duration);
+        return true;
+    }
+
     $(document).on('click', 'a[href^="#"]', function (event) {
         event.preventDefault();
-
-        var target = $($.attr(this, 'href'));
-        var offset = 0;
-
-        if ($(window).width() < 1200) {
-            offset = 90;
-        }
-
-        $('html, body').animate({
-            scrollTop: target.offset().top - offset
-        }, 400);
+        scrollToHash($.attr(this, 'href'), 400);
     });
+
+    if (window.location.hash) {
+        setTimeout(function () { scrollToHash(window.location.hash, 600); }, 1200);
+    }
 
     $(document).ready(function () {
         $(".mil-arrow").clone().appendTo(".mil-arrow-place");
@@ -562,6 +567,11 @@ $(function () {
             scrollTop: 0,
         }, 0);
 
+        // honour #anchors (e.g. client-portal#package-2) after a page transition
+        if (window.location.hash) {
+            setTimeout(function () { scrollToHash(window.location.hash, 600); }, 400);
+        }
+
         gsap.to('.mil-progress', {
             height: 0,
             ease: 'sine',
@@ -583,7 +593,7 @@ $(function () {
 
         ***************************/
         $(document).ready(function () {
-            $(".mil-arrow-place .mil-arrow, .mil-animation .mil-dodecahedron, .mil-current-page a").remove();
+            $(".mil-arrow-place .mil-arrow, .mil-animation .mil-dodecahedron, .mil-lines-place .mil-lines, .mil-current-page a").remove();
             $(".mil-arrow").clone().appendTo(".mil-arrow-place");
             $(".mil-dodecahedron").clone().appendTo(".mil-animation");
             $(".mil-lines").clone().appendTo(".mil-lines-place");
@@ -993,3 +1003,168 @@ $(function () {
     });
 
 });
+
+
+/*----------------------------------------------------------
+------------------------------------------------------------
+
+FORMS  (contact, package booking, newsletter)
+
+Uses delegated listeners so they keep working after swup
+page transitions. Submissions are emailed to the FazeSoft
+inbox through FormSubmit (https://formsubmit.co). If that
+service is unreachable the visitor's own mail app is opened
+with the message pre-filled, so no enquiry is ever lost.
+
+------------------------------------------------------------
+----------------------------------------------------------*/
+(function () {
+    "use strict";
+
+    var INBOX = 'fazesoft.2024@gmail.com';
+    var ENDPOINT = 'https://formsubmit.co/ajax/' + INBOX;
+
+    var SUBJECTS = {
+        contact: 'New website enquiry',
+        booking: 'New package booking request',
+        newsletter: 'New newsletter subscriber'
+    };
+
+    var LABELS = {
+        package: 'Package',
+        name: 'Name',
+        email: 'Email',
+        company: 'Company',
+        domain: 'Domain',
+        phone: 'Phone',
+        message: 'Message'
+    };
+
+    function escapeHtml(str) {
+        return String(str).replace(/[&<>"']/g, function (c) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+    }
+
+    function statusEl(form) {
+        var el = form.querySelector('.mil-form-status');
+        if (!el) {
+            el = document.createElement('div');
+            el.className = 'mil-form-status';
+            el.setAttribute('role', 'status');
+            el.setAttribute('aria-live', 'polite');
+            form.appendChild(el);
+        }
+        return el;
+    }
+
+    function showStatus(form, type, html) {
+        var el = statusEl(form);
+        el.className = 'mil-form-status mil-form-status-' + type;
+        el.innerHTML = html;
+    }
+
+    function collect(form) {
+        var data = {};
+        var fd = new FormData(form);
+        fd.forEach(function (value, key) {
+            if (key.charAt(0) === '_') return;
+            value = String(value).trim();
+            if (value) data[LABELS[key] || key] = value;
+        });
+        return data;
+    }
+
+    function mailtoFallback(kind, data) {
+        var body = Object.keys(data).map(function (k) { return k + ': ' + data[k]; }).join('\n');
+        return 'mailto:' + INBOX + '?subject=' + encodeURIComponent(SUBJECTS[kind] || 'Website enquiry') +
+            '&body=' + encodeURIComponent(body);
+    }
+
+    document.addEventListener('submit', function (e) {
+        var form = e.target;
+        if (!form || !form.matches || !form.matches('form[data-fs-form]')) return;
+        e.preventDefault();
+
+        // honeypot: real people never fill this hidden field
+        var trap = form.querySelector('[name="_honey"]');
+        if (trap && trap.value) return;
+
+        if (form.checkValidity && !form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        var kind = form.getAttribute('data-fs-form');
+        var data = collect(form);
+        var btn = form.querySelector('[type="submit"]');
+        var btnLabel = btn ? btn.querySelector('span') : null;
+        var originalLabel = btnLabel ? btnLabel.textContent : '';
+
+        if (btn) {
+            btn.disabled = true;
+            btn.setAttribute('aria-busy', 'true');
+        }
+        if (btnLabel) btnLabel.textContent = 'Sending...';
+        showStatus(form, 'pending', kind === 'newsletter' ? 'Subscribing...' : 'Sending your message...');
+
+        var payload = {};
+        Object.keys(data).forEach(function (k) { payload[k] = data[k]; });
+        payload._subject = (SUBJECTS[kind] || 'Website enquiry') + (data.Package ? ' - ' + data.Package : '') +
+            (data.Name ? ' from ' + data.Name : '');
+        payload._template = 'table';
+        payload._captcha = 'false';
+        if (data.Email) payload._replyto = data.Email;
+        payload['Submitted from'] = window.location.href;
+
+        fetch(ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+        }).then(function (res) {
+            return res.json().catch(function () { return {}; }).then(function (json) {
+                if (!res.ok || json.success === false || json.success === 'false') {
+                    throw new Error(json.message || 'Request failed');
+                }
+            });
+        }).then(function () {
+            var name = data.Name ? ', ' + escapeHtml(data.Name.split(' ')[0]) : '';
+            var msg;
+            if (kind === 'newsletter') {
+                msg = 'Thanks for subscribing! You will hear from us soon.';
+            } else if (kind === 'booking') {
+                msg = '<strong>Thank you' + name + '!</strong> Your request for <strong>' + escapeHtml(data.Package || 'your package') +
+                    '</strong> has been received. Our team will email you within 12 hours with onboarding details and a kickoff call slot.';
+            } else {
+                msg = '<strong>Thank you' + name + '!</strong> Your message has been sent. We usually reply within one business day.';
+            }
+            showStatus(form, 'success', msg);
+            form.reset();
+            if (btnLabel) btnLabel.textContent = kind === 'newsletter' ? originalLabel : 'Sent';
+        }).catch(function () {
+            showStatus(form, 'error', 'We couldn\'t send that automatically. <a href="' + mailtoFallback(kind, data) +
+                '">Click here to send it from your email app</a> or write to us at <a href="mailto:' + INBOX + '">' + INBOX + '</a>.');
+            if (btnLabel) btnLabel.textContent = originalLabel;
+        }).then(function () {
+            if (btn) {
+                btn.disabled = false;
+                btn.removeAttribute('aria-busy');
+            }
+        });
+    });
+
+    // "Book this package" buttons pre-select the package in the booking form
+    document.addEventListener('click', function (e) {
+        var trigger = e.target.closest ? e.target.closest('[data-package]') : null;
+        if (!trigger) return;
+        var select = document.getElementById('packageSelect');
+        if (!select) return;
+        var wanted = trigger.getAttribute('data-package');
+        for (var i = 0; i < select.options.length; i++) {
+            if (select.options[i].value === wanted) {
+                select.selectedIndex = i;
+                break;
+            }
+        }
+    });
+})();

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
 
@@ -19,6 +19,9 @@
     <link rel="manifest" href="site.webmanifest">
 
     <!-- bootstrap grid css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..700&display=swap">
     <link rel="stylesheet" href="css/plugins/bootstrap-grid.css">
     <!-- font awesome css -->
     <link rel="stylesheet" href="css/plugins/font-awesome.min.css">
@@ -31,6 +34,52 @@
     <!-- page name -->
     <title>Software Products & Industry Solutions | FazeSoft</title>
     <link rel="canonical" href="https://www.fazesoft.com/products">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#000000">
+    <meta property="og:site_name" content="FazeSoft">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Software Products &amp; Industry Solutions | FazeSoft">
+    <meta property="og:description" content="Discover FazeSoft&#x27;s innovative products and solutions across FinTech, Healthcare, E-Commerce, Education, and Enterprise systems.">
+    <meta property="og:url" content="https://www.fazesoft.com/products">
+    <meta property="og:image" content="https://www.fazesoft.com/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="FazeSoft - Software &amp; AI Development Company">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Software Products &amp; Industry Solutions | FazeSoft">
+    <meta name="twitter:description" content="Discover FazeSoft&#x27;s innovative products and solutions across FinTech, Healthcare, E-Commerce, Education, and Enterprise systems.">
+    <meta name="twitter:image" content="https://www.fazesoft.com/img/og-image.jpg">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://www.fazesoft.com/#organization",
+      "@type": "Organization",
+      "name": "FazeSoft",
+      "url": "https://www.fazesoft.com/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.fazesoft.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Software Products & Industry Solutions",
+          "item": "https://www.fazesoft.com/products"
+        }
+      ]
+    }
+  ]
+}
+    </script>
 
 </head>
 
@@ -80,7 +129,7 @@
         <div class="mil-menu-frame">
             <!-- frame clone -->
             <div class="mil-frame-top">
-                <a href="home-1" class="mil-logo">FS.</a>
+                <a href="/" class="mil-logo">FS.</a>
                 <div class="mil-menu-btn">
                     <span></span>
                 </div>
@@ -96,7 +145,7 @@
                                     <li class="mil-has-children" data-nav="home">
                                         <a href="#.">Homepage</a>
                                         <ul>
-                                            <li><a href="home-1">Landing page</a></li>
+                                            <li><a href="/">Landing page</a></li>
                                             <li><a href="home-2">Personal</a></li>
                                             <li><a href="portfolio-3">Portfolio slider</a></li>
                                         </ul>
@@ -249,7 +298,7 @@
         <!-- frame -->
         <div class="mil-frame">
             <div class="mil-frame-top">
-                <a href="home-1" class="mil-logo">FS.</a>
+                <a href="/" class="mil-logo">FS.</a>
                 <div class="mil-menu-btn">
                     <span></span>
                 </div>
@@ -277,7 +326,7 @@
                     <div class="mil-banner-content mil-up">
                         <div class="container mil-p-120-90">
                             <ul class="mil-breadcrumbs mil-mb-60">
-                                <li><a href="home-1">Homepage</a></li>
+                                <li><a href="/">Homepage</a></li>
                                 <li><a href="products">Products</a></li>
                             </ul>
                             <h1 class="mil-muted mil-mb-60">Industry <span class="mil-thin">Solutions</span></h1>
@@ -777,10 +826,11 @@
 
                                     <p class="mil-light-soft mil-up mil-mb-30">Subscribe to our newsletter:</p>
 
-                                    <form class="mil-subscribe-form mil-up">
-                                        <input type="text" placeholder="Enter our email">
+                                    <form class="mil-subscribe-form mil-up" data-fs-form="newsletter" novalidate>
+                                        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="mil-hp">
+                                        <input type="email" name="email" required autocomplete="email" aria-label="Your email address" placeholder="Enter your email">
                                         <button type="submit"
-                                            class="mil-button mil-icon-button-sm mil-arrow-place"></button>
+                                            class="mil-button mil-icon-button-sm mil-arrow-place" aria-label="Subscribe"></button>
                                     </form>
 
                                 </div>
@@ -791,7 +841,7 @@
                                             <nav class="mil-footer-menu mil-mb-60">
                                                 <ul>
                                                     <li class="mil-up mil-active">
-                                                        <a href="home-1">Home</a>
+                                                        <a href="/">Home</a>
                                                     </li>
                                                     <li class="mil-up">
                                                         <a href="portfolio-1">Portfolio</a>
