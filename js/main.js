@@ -1012,7 +1012,7 @@ FORMS  (contact, package booking, newsletter)
 
 Uses delegated listeners so they keep working after swup
 page transitions. Submissions are emailed to the FazeSoft
-inbox through FormSubmit (https://formsubmit.co). If that
+inbox through Vercel Serverless Function (/api/contact) powered by Resend. If that
 service is unreachable the visitor's own mail app is opened
 with the message pre-filled, so no enquiry is ever lost.
 
@@ -1022,7 +1022,7 @@ with the message pre-filled, so no enquiry is ever lost.
     "use strict";
 
     var INBOX = 'fazesoft.2024@gmail.com';
-    var ENDPOINT = 'https://formsubmit.co/ajax/' + INBOX;
+    var ENDPOINT = '/api/contact';
 
     var SUBJECTS = {
         contact: 'New website enquiry',
@@ -1041,8 +1041,18 @@ with the message pre-filled, so no enquiry is ever lost.
     };
 
     function escapeHtml(str) {
-        return String(str).replace(/[&<>"']/g, function (c) {
-            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        if (!str) return '';
+        return String(str).replace(/[&<>"'`=\/]/g, function (c) {
+            return {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;',
+                '/': '&#x2F;',
+                '`': '&#x60;',
+                '=': '&#x3D;'
+            }[c];
         });
     }
 
@@ -1116,6 +1126,7 @@ with the message pre-filled, so no enquiry is ever lost.
         payload._captcha = 'false';
         if (data.Email) payload._replyto = data.Email;
         payload['Submitted from'] = window.location.href;
+        payload.formKind = kind;
 
         fetch(ENDPOINT, {
             method: 'POST',
@@ -1124,7 +1135,11 @@ with the message pre-filled, so no enquiry is ever lost.
         }).then(function (res) {
             return res.json().catch(function () { return {}; }).then(function (json) {
                 if (!res.ok || json.success === false || json.success === 'false') {
-                    throw new Error(json.message || 'Request failed');
+                    var errorDetail = json.error || json.message || ('Server returned HTTP ' + res.status + ' (' + (res.statusText || 'Error') + ')');
+                    var err = new Error(errorDetail);
+                    err.status = res.status;
+                    err.responseJson = json;
+                    throw err;
                 }
             });
         }).then(function () {
@@ -1141,9 +1156,11 @@ with the message pre-filled, so no enquiry is ever lost.
             showStatus(form, 'success', msg);
             form.reset();
             if (btnLabel) btnLabel.textContent = kind === 'newsletter' ? originalLabel : 'Sent';
-        }).catch(function () {
+        }).catch(function (err) {
+            console.error('[FazeSoft Form Submission Error]', err);
+            var errDetail = (err && err.message) ? '<div class="mil-form-error-detail" style="font-size: 13px; opacity: 0.9; margin-top: 8px; font-family: monospace;">Detail: ' + escapeHtml(err.message) + '</div>' : '';
             showStatus(form, 'error', 'We couldn\'t send that automatically. <a href="' + mailtoFallback(kind, data) +
-                '">Click here to send it from your email app</a> or write to us at <a href="mailto:' + INBOX + '">' + INBOX + '</a>.');
+                '">Click here to send it from your email app</a> or write to us at <a href="mailto:' + INBOX + '">' + INBOX + '</a>.' + errDetail);
             if (btnLabel) btnLabel.textContent = originalLabel;
         }).then(function () {
             if (btn) {

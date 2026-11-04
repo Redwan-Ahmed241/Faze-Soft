@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Read research publications, technical whitepapers, and engineering findings contributed by the FazeSoft engineering team.">
+    <meta name="description" content="A technical engineering breakdown on how FazeSoft cut p95 API response times by 60%, resolved PostgreSQL connection exhaustion with PgBouncer, and eliminated Celery worker queue starvation in high-throughput production web applications.">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- favicon & app icons -->
@@ -32,24 +32,74 @@
     <!-- fazesoft scss -->
     <link rel="stylesheet" href="css/style.css">
     <!-- page name -->
-    <title>Research & Publications | FazeSoft</title>
-    <meta name="robots" content="noindex, follow">
+    <title>Architecting for Scale: Cutting API Latency &amp; Stabilizing Queues | FazeSoft Engineering</title>
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://www.fazesoft.com/publication">
     <meta name="theme-color" content="#000000">
     <meta property="og:site_name" content="FazeSoft">
     <meta property="og:locale" content="en_US">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Research &amp; Publications | FazeSoft">
-    <meta property="og:description" content="Read research publications, technical whitepapers, and engineering findings contributed by the FazeSoft engineering team.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Architecting for Scale: Cutting API Latency &amp; Stabilizing Queues | FazeSoft Engineering">
+    <meta property="og:description" content="A technical engineering breakdown on how FazeSoft cut p95 API response times by 60%, resolved PostgreSQL connection exhaustion with PgBouncer, and eliminated Celery worker queue starvation in high-throughput production web applications.">
     <meta property="og:url" content="https://www.fazesoft.com/publication">
-    <meta property="og:image" content="https://www.fazesoft.com/img/og-image.jpg">
+    <meta property="og:image" content="https://www.fazesoft.com/img/blog/3.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="FazeSoft - Software &amp; AI Development Company">
+    <meta property="og:image:alt" content="Production performance metrics and latency reduction chart">
+    <meta property="article:published_time" content="2026-11-04">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Research &amp; Publications | FazeSoft">
-    <meta name="twitter:description" content="Read research publications, technical whitepapers, and engineering findings contributed by the FazeSoft engineering team.">
-    <meta name="twitter:image" content="https://www.fazesoft.com/img/og-image.jpg">
+    <meta name="twitter:title" content="Architecting for Scale: Cutting API Latency &amp; Stabilizing Queues | FazeSoft Engineering">
+    <meta name="twitter:description" content="A technical engineering breakdown on how FazeSoft cut p95 API response times by 60%, resolved PostgreSQL connection exhaustion with PgBouncer, and eliminated Celery worker queue starvation in high-throughput production web applications.">
+    <meta name="twitter:image" content="https://www.fazesoft.com/img/blog/3.webp">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Architecting for Scale: How We Cut API Latency by 60% and Stabilized Background Job Processing",
+      "description": "A technical post-mortem detailing how the FazeSoft engineering team cut p95 API response latency from 840ms to 182ms, solved PostgreSQL connection exhaustion with PgBouncer, and isolated Redis background worker pools.",
+      "image": "https://www.fazesoft.com/img/blog/3.webp",
+      "datePublished": "2026-11-04",
+      "dateModified": "2026-11-04",
+      "author": {
+        "@type": "Organization",
+        "name": "FazeSoft Engineering Team",
+        "url": "https://www.fazesoft.com/"
+      },
+      "publisher": {
+        "@id": "https://www.fazesoft.com/#organization"
+      },
+      "mainEntityOfPage": "https://www.fazesoft.com/publication",
+      "inLanguage": "en"
+    },
+    {
+      "@id": "https://www.fazesoft.com/#organization",
+      "@type": "Organization",
+      "name": "FazeSoft",
+      "url": "https://www.fazesoft.com/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.fazesoft.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Publications",
+          "item": "https://www.fazesoft.com/publication"
+        }
+      ]
+    }
+  ]
+}
+    </script>
 
 </head>
 
@@ -67,7 +117,7 @@
                 </svg>
             </span>
             <div class="mil-more-text">More</div>
-            <div class="mil-choose-text">?hoose</div>
+            <div class="mil-choose-text">Choose</div>
         </div>
         <!-- cursor end -->
 
@@ -120,20 +170,17 @@
                                             <li><a href="portfolio-3">Portfolio slider</a></li>
                                         </ul>
                                     </li>
-                                    <!-- Portfolio menu removed -->
                                     <li class="mil-has-children" data-nav="services">
                                         <a href="#.">Services</a>
                                         <ul>
                                             <li><a href="services">Web &amp; Mobile App Development</a></li>
                                             <li><a href="services">Full-Stack Web Application Development</a></li>
-                                            <li><a href="services">Responsive Web Development (SPA &amp; SSR)</a>
-                                            </li>
+                                            <li><a href="services">Responsive Web Development (SPA &amp; SSR)</a></li>
                                             <li><a href="services">Cross-Platform Mobile App Development</a></li>
                                             <li><a href="services">RESTful API &amp; Backend Development</a></li>
                                             <li><a href="services">E-commerce Development</a></li>
                                             <li><a href="services">Custom Software Development</a></li>
-                                            <li><a href="services">Enterprise Web &amp; Business Systems
-                                                    Development</a></li>
+                                            <li><a href="services">Enterprise Web &amp; Business Systems Development</a></li>
                                             <li><a href="services">CRM &amp; Dashboard Solutions</a></li>
                                             <li><a href="services">Content Management Systems (CMS)</a></li>
                                             <li><a href="services">Booking &amp; Listing Platforms</a></li>
@@ -168,19 +215,18 @@
                                             <li><a href="client-portal#onboarding">Order &amp; Onboarding</a></li>
                                         </ul>
                                     </li>
-                                    <li class="mil-has-children" data-nav="other">
+                                    <li class="mil-has-children mil-active" data-nav="other">
                                         <a href="#.">Other pages</a>
                                         <ul>
                                             <li><a href="team">Team</a></li>
                                             <li><a href="contact">Contact</a></li>
                                             <li><a href="blog">Blog List</a></li>
                                             <li><a href="publication">Publication</a></li>
+                                            <li><a href="careers">Careers</a></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="contact"
-                                            class="mil-button mil-arrow-place mil-nav-cta"><span>Schedule a
-                                                Call</span></a>
+                                        <a href="contact" class="mil-button mil-arrow-place mil-nav-cta"><span>Schedule a Call</span></a>
                                     </li>
                                 </ul>
                             </nav>
@@ -202,18 +248,12 @@
                                             <h6 class="mil-muted mil-mb-30">Projects</h6>
 
                                             <ul class="mil-menu-list">
-                                                <li><a href="project-1" class="mil-light-soft">Enterprise ERP
-                                                        System</a></li>
-                                                <li><a href="project-2" class="mil-light-soft">E-Commerce
-                                                        Platform</a></li>
-                                                <li><a href="project-3" class="mil-light-soft">Healthcare
-                                                        Management App</a></li>
-                                                <li><a href="project-4" class="mil-light-soft">FinTech Mobile
-                                                        App</a></li>
-                                                <li><a href="project-5" class="mil-light-soft">AI-Powered
-                                                        Analytics</a></li>
-                                                <li><a href="project-6" class="mil-light-soft">Cloud Migration
-                                                        Project</a></li>
+                                                <li><a href="project-1" class="mil-light-soft">Enterprise ERP System</a></li>
+                                                <li><a href="project-2" class="mil-light-soft">E-Commerce Platform</a></li>
+                                                <li><a href="project-3" class="mil-light-soft">Healthcare Management App</a></li>
+                                                <li><a href="project-4" class="mil-light-soft">FinTech Mobile App</a></li>
+                                                <li><a href="project-5" class="mil-light-soft">AI-Powered Analytics</a></li>
+                                                <li><a href="project-6" class="mil-light-soft">Cloud Migration Project</a></li>
                                             </ul>
 
                                         </div>
@@ -223,10 +263,10 @@
 
                                             <ul class="mil-menu-list">
                                                 <li><a href="client-portal" class="mil-light-soft">Client Portal</a></li>
-                                                <li><a href="#." class="mil-light-soft">Privacy Policy</a></li>
-                                                <li><a href="#." class="mil-light-soft">Terms and conditions</a></li>
-                                                <li><a href="#." class="mil-light-soft">Cookie Policy</a></li>
-                                                <li><a href="#." class="mil-light-soft">Careers</a></li>
+                                                <li><a href="privacy-policy" class="mil-light-soft">Privacy Policy</a></li>
+                                                <li><a href="terms-of-service" class="mil-light-soft">Terms of Service</a></li>
+                                                <li><a href="cookie-policy" class="mil-light-soft">Cookie Policy</a></li>
+                                                <li><a href="careers" class="mil-light-soft">Careers</a></li>
                                             </ul>
 
                                         </div>
@@ -238,19 +278,20 @@
 
                                             <h6 class="mil-muted mil-mb-30">Bangladesh</h6>
 
-                                            <p class="mil-light-soft mil-up">Dhaka, Bangladesh <span
-                                                    class="mil-no-wrap">+880 1793-268944</span></p>
+                                            <p class="mil-light-soft mil-up">Block A, House 09, Road 02, Mirpur 11, Dhaka 1216 <span
+                                                    class="mil-no-wrap">+880 1840-038755</span></p>
 
                                         </div>
                                         <div class="col-lg-4 mil-mb-60">
 
                                             <h6 class="mil-muted mil-mb-30">Global</h6>
 
-                                            <p class="mil-light-soft">Available Worldwide <span
+                                            <p class="mil-light-soft mil-up">Available Worldwide <span
                                                     class="mil-no-wrap">fazesoft.2024@gmail.com</span></p>
 
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
 
@@ -295,10 +336,9 @@
                             <ul class="mil-breadcrumbs mil-center mil-mb-60">
                                 <li><a href="/">Homepage</a></li>
                                 <li><a href="blog">Blog</a></li>
-                                <li><a href="blog">Publication</a></li>
+                                <li><a href="publication">Publication</a></li>
                             </ul>
-                            <h1 class="mil-h2">How to Become a <span class="mil-thin">Graphic</span><br> Designer in <span
-                                    class="mil-thin">10 Simple Steps</span></h1>
+                            <h1 class="mil-h2">Architecting for Scale: <span class="mil-thin">How We Cut API Latency by 60%</span><br> and Stabilized <span class="mil-thin">Production Queue Workers</span></h1>
                         </div>
                     </div>
                 </div>
@@ -311,92 +351,115 @@
                             <div class="col-lg-12">
 
                                 <div class="mil-image-frame mil-horizontal mil-up">
-                                    <img src="img/blog/3.webp" alt="Publication cover" class="mil-scale"
+                                    <img src="img/blog/3.webp" alt="Production latency and throughput monitoring dashboard" class="mil-scale"
                                         data-value-1=".90" data-value-2="1.15">
                                 </div>
                                 <div class="mil-info mil-up mil-mb-90">
-                                    <div>Category: &nbsp;<span class="mil-dark">Technology</span></div>
-                                    <div>Date: &nbsp;<span class="mil-dark">April 2023</span></div>
-                                    <div>Author: &nbsp;<span class="mil-dark">Paul Trueman</span></div>
+                                    <div>Category: &nbsp;<span class="mil-dark">Systems Architecture</span></div>
+                                    <div>Date: &nbsp;<span class="mil-dark">November 2026</span></div>
+                                    <div>Author: &nbsp;<span class="mil-dark">FazeSoft Engineering Team</span></div>
                                 </div>
 
                             </div>
                             <div class="col-lg-8">
 
-                                <p class="mil-text-xl mil-dark mil-up mil-mb-60">Are you passionate about design and
-                                    interested in pursuing a career as a graphic designer? Graphic design is a dynamic
-                                    field that combines creativity, technical skills, and a keen eye for aesthetics.
-                                    Whether you're a beginner or someone looking to enhance their skills, this article
-                                    will guide you through 10 simple steps to become a graphic designer.</p>
+                                <p class="mil-text-xl mil-dark mil-up mil-mb-60">When traffic scaled from 600 to 4,500 requests per minute during morning operational peaks on one of our client platforms, our p95 API latency climbed from an acceptable 140ms to a painful 840ms. At the same time, transactional emails and webhook dispatches started queuing for up to 14 minutes. Here is the technical post-mortem of how we identified the bottlenecks, restructured connection handling and queue topologies, and brought p95 latency down to 182ms without adding expensive compute instances.</p>
 
-                                <blockquote class="mil-up mil-mb-60">"Creativity is intelligence having fun." - Albert
-                                    Einstein</blockquote>
+                                <blockquote class="mil-up mil-mb-60">"Scaling web systems is rarely about adding bigger database servers. In production, 80% of latency bottlenecks stem from connection churn, unindexed foreign key table locks, and worker starvation in unsegmented queues."</blockquote>
 
-                                <h5 class="mil-up mil-mb-30">Understand the Field</h5>
-                                <p class="mil-up mil-mb-60">Start by gaining a comprehensive understanding of what
-                                    graphic design entails. Research the different types of graphic design, such as
-                                    branding, web design, print design, and illustration. Explore the work of successful
-                                    graphic designers and analyze their portfolios to learn about various design styles
-                                    and techniques.</p>
+                                <h4 class="mil-up mil-mb-30">1. The Problem &amp; Baseline Bottlenecks</h4>
+                                <p class="mil-up mil-mb-30">The stack was typical for a modern web application: a Next.js frontend querying a Python/Django REST Framework backend running on Gunicorn, backed by PostgreSQL on AWS RDS and Redis for Celery worker queues. Everything ran in Docker containers orchestrating under AWS ECS.</p>
+                                <p class="mil-up mil-mb-30">Under light traffic, the system performed well. But as active enterprise tenants grew, three distinct failure patterns surfaced simultaneously:</p>
 
-                                <h5 class="mil-up mil-mb-30">Get a Design Education</h5>
-                                <p class="mil-up mil-mb-60">While formal education is not always a requirement, it can
-                                    provide you with a solid foundation and enhance your credibility as a graphic
-                                    designer. Consider pursuing a degree or diploma in graphic design or a related
-                                    field. Look for reputable design schools or online courses that offer comprehensive
-                                    programs to learn both theory and practical skills.</p>
+                                <ul class="mil-up mil-mb-60" style="padding-left: 20px; line-height: 1.8; color: rgba(0,0,0,0.7);">
+                                    <li><strong>PostgreSQL Connection Saturation:</strong> Gunicorn was running 16 worker processes across 4 application containers (64 concurrent worker threads). Every worker maintained its own direct connection to Postgres. Under burst traffic, database connection spikes caused thread contention and high context switching overhead on the database instance, frequently hitting the max connection threshold (<code>FATAL: remaining connection slots are reserved</code>).</li>
+                                    <li><strong>The N+1 Serializer Trap:</strong> The primary dashboard endpoint returned nested account activity records. Profiling with <code>pg_stat_statements</code> and Django Debug Toolbar revealed that a single HTTP request executed 87 SQL queries. The ORM was lazily fetching related tenant profile and permission rows in sequential roundtrips.</li>
+                                    <li><strong>Queue Head-of-Line Blocking:</strong> All background jobs were pushed into a single Redis queue. When a user requested a 500-page monthly invoice PDF export, that 45-second CPU-bound job occupied worker threads. Latency-sensitive jobs—like user signup verification emails and payment webhook acknowledgments—sat idle in the queue waiting for the PDF to finish.</li>
+                                </ul>
 
-                                <h5 class="mil-up mil-mb-30">Build Your Portfolio</h5>
-                                <p class="mil-up mil-mb-60">Your portfolio is your calling card as a graphic designer.
-                                    Compile a collection of your best design projects to showcase your abilities and
-                                    style. Include a variety of work, such as logos, brochures, websites, or
-                                    illustrations, to demonstrate your versatility. Constantly update your portfolio as
-                                    you complete new projects or improve existing ones.</p>
+                                <h4 class="mil-up mil-mb-30">2. Architectural Decisions &amp; Trade-Offs</h4>
+                                <p class="mil-up mil-mb-30">Throwing higher-tier hardware at connection exhaustion or queue starvation only masks poor architecture while inflating cloud bills. We established three architectural constraints before touching any code:</p>
 
-                                <h5 class="mil-up mil-mb-30">Gain Practical Experience</h5>
-                                <p class="mil-up mil-mb-60">To become a successful graphic designer, practical
-                                    experience is crucial. Seek internships, freelance opportunities, or entry-level
-                                    positions to gain hands-on experience in the field. This will allow you to apply
-                                    your skills in real-world scenarios, understand client requirements, work with
-                                    deadlines, and collaborate with others in a professional environment.</p>
+                                <div class="mil-up mil-mb-30" style="background: rgba(0,0,0,0.02); border-left: 3px solid rgb(255, 152, 0); padding: 20px 24px;">
+                                    <h6 class="mil-mb-10">A. Transaction-Level Connection Pooling with PgBouncer</h6>
+                                    <p class="mil-text-sm mil-dark-soft" style="margin-bottom: 0;">Instead of allowing 64 application processes to maintain open connections to Postgres, we placed <strong>PgBouncer</strong> in front of the database running in <code>pool_mode = transaction</code>. The trade-off: transaction pooling breaks prepared statements and session-level settings (like <code>SET timezone</code> or advisory locks across transactions). We audited all raw SQL queries and configured Django with <code>DISABLE_SERVER_SIDE_CURSORS = True</code> to ensure clean compatibility.</p>
+                                </div>
+
+                                <div class="mil-up mil-mb-30" style="background: rgba(0,0,0,0.02); border-left: 3px solid rgb(255, 152, 0); padding: 20px 24px;">
+                                    <h6 class="mil-mb-10">B. Multi-Lane Queue Worker Topology</h6>
+                                    <p class="mil-text-sm mil-dark-soft" style="margin-bottom: 0;">We banned the monolithic queue model. Workloads were classified by execution profile: <code>urgent.fifo</code> for user-facing transactional events (&lt;500ms SLA), <code>default</code> for asynchronous database syncs (&lt;5s SLA), and <code>bulk.batch</code> for exports, PDF generation, and external syncs (no latency SLA). Each lane received dedicated Celery worker containers.</p>
+                                </div>
+
+                                <div class="mil-up mil-mb-60" style="background: rgba(0,0,0,0.02); border-left: 3px solid rgb(255, 152, 0); padding: 20px 24px;">
+                                    <h6 class="mil-mb-10">C. Deterministic Cache Invalidation over TTL Guessing</h6>
+                                    <p class="mil-text-sm mil-dark-soft" style="margin-bottom: 0;">Arbitrary cache expiration times (e.g., <code>cache.set(key, val, timeout=300)</code>) caused the dreaded "cache stampede": when a key expired on a hot endpoint, 50 concurrent requests simultaneously bypassed cache and slammed the database with identical complex aggregate queries. We switched to write-through invalidation with Redis distributed locks.</p>
+                                </div>
 
                                 <div class="row">
                                     <div class="col-lg-6">
-
                                         <div class="mil-image-frame mil-horizontal mil-up mil-mb-30">
-                                            <img loading="lazy" decoding="async" src="img/blog/4.webp" alt="Publication cover">
+                                            <img loading="lazy" decoding="async" src="img/blog/4.webp" alt="PostgreSQL query execution plan and index scan optimization">
                                         </div>
-
                                     </div>
                                     <div class="col-lg-6">
-
                                         <div class="mil-image-frame mil-horizontal mil-up mil-mb-60">
-                                            <img loading="lazy" decoding="async" src="img/blog/7.webp" alt="Publication cover">
+                                            <img loading="lazy" decoding="async" src="img/blog/7.webp" alt="Distributed queue worker topology and connection pooling architecture">
                                         </div>
-
                                     </div>
                                 </div>
 
-                                <p class="mil-up mil-mb-60">Remember that creativity is at the core of graphic design.
-                                    Embrace your creativity, experiment with different ideas, and think outside the box
-                                    to create unique and impactful designs. Don't be afraid to take risks and push the
-                                    boundaries of traditional design. Steve Jobs once said:</p>
+                                <h4 class="mil-up mil-mb-30">3. Implementation Details</h4>
+                                
+                                <h5 class="mil-up mil-mb-20">PostgreSQL Indexing &amp; Query Plan Rewrites</h5>
+                                <p class="mil-up mil-mb-30">Using <code>EXPLAIN (ANALYZE, BUFFERS)</code> on our slowest queries, we discovered that PostgreSQL was running sequential heap scans across a 4.8 million row audit log table. The foreign key <code>tenant_id</code> was indexed, but the query filtered on both <code>tenant_id</code> and <code>created_at</code> in reverse chronological order.</p>
 
-                                <blockquote class="mil-up mil-mb-60">
-                                    "Design is not just what it looks like and feels like. Design is how it works." So
-                                    go ahead, unleash your creativity, and embark on your path to becoming a graphic
-                                    designer!
-                                </blockquote>
+                                <p class="mil-up mil-mb-20">We created a partial composite B-tree index concurrently without locking production writes:</p>
+                                <div class="mil-up mil-mb-30" style="background: #111111; color: #e6e6e6; padding: 20px 24px; border-radius: 8px; font-family: monospace; font-size: 13px; line-height: 1.6; overflow-x: auto;">
+                                    <span style="color: #ff9800;">CREATE INDEX CONCURRENTLY</span> idx_orders_tenant_active<br>
+                                    <span style="color: #ff9800;">ON</span> orders (tenant_id, created_at <span style="color: #ff9800;">DESC</span>)<br>
+                                    <span style="color: #ff9800;">WHERE</span> status != <span style="color: #8bc34a;">'archived'</span>;
+                                </div>
 
-                                <p class="mil-up mil-mb-30">In addition to the aforementioned steps, other important
-                                    aspects of becoming a graphic designer include networking with industry
-                                    professionals, staying updated on design trends and technologies, and continuously
-                                    learning and improving your skills.</p>
+                                <p class="mil-up mil-mb-30">This single index eliminated the sorting buffer spill to disk, reducing query execution time from 320ms down to 4.2ms. Next, we replaced ORM nested queries with pre-aggregated SQL window functions and <code>select_related()</code> / <code>prefetch_related()</code> with explicit <code>Prefetch</code> querysets limiting columns via <code>.only()</code>. Response payload sizes dropped from 1.4MB to 38KB.</p>
 
-                                <p class="mil-up mil-mb-30">Becoming a graphic designer is an exciting journey that
-                                    requires dedication, hard work, and a genuine passion for design. By following these
-                                    10 simple steps, you'll be well on your way to establishing yourself as a skilled
-                                    graphic designer and opening doors to a rewarding and fulfilling career.</p>
+                                <h5 class="mil-up mil-mb-20">Celery Prefetch Multiplier &amp; Memory Leaks</h5>
+                                <p class="mil-up mil-mb-30">A major source of background worker instability was Celery's default behavior. By default, <code>CELERY_WORKER_PREFETCH_MULTIPLIER = 4</code>. If worker A was processing a 30-second export, Celery would still prefetch 4 additional tasks into worker A's local queue buffer, leaving worker B completely idle while urgent tasks waited behind worker A.</p>
+
+                                <p class="mil-up mil-mb-20">We tuned our worker deployment configuration:</p>
+                                <div class="mil-up mil-mb-30" style="background: #111111; color: #e6e6e6; padding: 20px 24px; border-radius: 8px; font-family: monospace; font-size: 13px; line-height: 1.6; overflow-x: auto;">
+                                    <span style="color: #999;"># celery_config.py</span><br>
+                                    CELERY_WORKER_PREFETCH_MULTIPLIER = 1<br>
+                                    CELERY_ACKS_LATE = True<br>
+                                    CELERY_TASK_REJECT_ON_WORKER_LOST = True<br>
+                                    CELERY_WORKER_MAX_TASKS_PER_CHILD = 250  <span style="color: #999;"># Recycles worker to prevent C-extension memory leaks</span>
+                                </div>
+
+                                <p class="mil-up mil-mb-30">Setting prefetch to <code>1</code> forced workers to pull only one task at a time, ensuring fast tasks were immediately picked up by any available worker process. Setting <code>max_tasks_per_child = 250</code> automatically recycled worker processes, resolving intermittent container out-of-memory (OOM) crashes caused by memory fragmentation in Python image processing libraries.</p>
+
+                                <h5 class="mil-up mil-mb-20">Lock-Protected Redis Caching</h5>
+                                <p class="mil-up mil-mb-30">To eliminate cache stampedes on the main dashboard, we implemented a brief Redis mutex lock pattern. When the cache key is missing, only the first worker acquires a 2-second lock to compute the expensive aggregate from PostgreSQL and write the cache. Concurrent requests detect the lock, wait 40ms, and fetch the freshly populated key from Redis rather than recalculating in parallel.</p>
+
+                                <h4 class="mil-up mil-mb-30">4. Production Results &amp; Hard Metrics</h4>
+                                <p class="mil-up mil-mb-30">After deploying these changes to production and observing during the following Monday morning peak traffic (4,600 rpm):</p>
+
+                                <ul class="mil-up mil-mb-60" style="padding-left: 20px; line-height: 1.8; color: rgba(0,0,0,0.7);">
+                                    <li><strong>API Latency (p95):</strong> Decreased from 840ms to <strong>182ms</strong> (a 78% reduction under peak load).</li>
+                                    <li><strong>API Latency (p50 median):</strong> Decreased from 110ms to <strong>28ms</strong>.</li>
+                                    <li><strong>Database Connection Pool:</strong> Decreased from 380 fluctuating connections down to a steady <strong>28 pooled connections</strong> via PgBouncer.</li>
+                                    <li><strong>Queue Processing Latency:</strong> Transactional task wait time dropped from 14 minutes down to <strong>under 650 milliseconds</strong>.</li>
+                                    <li><strong>Worker Crash Rate:</strong> Zero container OOM restarts over 90 consecutive production days.</li>
+                                </ul>
+
+                                <h4 class="mil-up mil-mb-30">5. Production Takeaways</h4>
+                                <p class="mil-up mil-mb-30">A few core principles we enforce across all client engineering projects at FazeSoft:</p>
+                                
+                                <p class="mil-up mil-mb-20"><strong>1. Never share queue workers between I/O tasks and CPU batch jobs.</strong> The moment an async task requires more than 2 seconds of execution time, it belongs in an isolated worker pool with its own resource limits.</p>
+                                
+                                <p class="mil-up mil-mb-20"><strong>2. Always inspect generated SQL before signing off on ORM models.</strong> ORMs make database interaction convenient, but convenience easily masks Cartesian products and unindexed foreign key lookups. Always run <code>EXPLAIN (ANALYZE, BUFFERS)</code> on endpoints handling list views.</p>
+                                
+                                <p class="mil-up mil-mb-30"><strong>3. Connection pooling belongs at the network boundary, not in application threads.</strong> Using a dedicated transaction pooler like PgBouncer allows your API containers to autoscale freely without choking your relational database.</p>
+
+                                <p class="mil-up mil-mb-60">High performance isn't magic. It is the result of measuring bottlenecks with real profilers, understanding how your database executes query plans, and respecting the boundaries between synchronous web threads and asynchronous task workers.</p>
 
                             </div>
                         </div>
@@ -431,12 +494,8 @@
                                             <div class="mil-label mil-upper mil-accent">AI</div>
                                             <div class="mil-label mil-upper">March 18, 2026</div>
                                         </div>
-                                        <h4 class="mil-up mil-mb-30">Practical AI Governance for Enterprise Teams
-                                        </h4>
-                                        <p class="mil-post-text mil-up mil-mb-30">AI adoption is accelerating across
-                                            product and operations teams, but many organizations still deploy models
-                                            without clear ownership and review controls. That gap introduces avoidable
-                                            risk in compliance, security, and customer trust.</p>
+                                        <h4 class="mil-up mil-mb-30">Practical AI Governance for Enterprise Teams</h4>
+                                        <p class="mil-post-text mil-up mil-mb-30">AI adoption is accelerating across product and operations teams, but many organizations still deploy models without clear ownership and review controls. That gap introduces avoidable risk in compliance, security, and customer trust.</p>
                                         <div class="mil-link mil-dark mil-arrow-place mil-up">
                                             <span>Read more</span>
                                         </div>
@@ -455,11 +514,8 @@
                                             <div class="mil-label mil-upper mil-accent">MACHINE LEARNING</div>
                                             <div class="mil-label mil-upper">February 27, 2026</div>
                                         </div>
-                                        <h4 class="mil-up mil-mb-30">What Makes an ML Model Production-Ready
-                                        </h4>
-                                        <p class="mil-post-text mil-up mil-mb-30">High model accuracy in a notebook does
-                                            not guarantee business value in production. Real systems must handle noisy
-                                            inputs, feature drift, and changing user behavior.</p>
+                                        <h4 class="mil-up mil-mb-30">What Makes an ML Model Production-Ready</h4>
+                                        <p class="mil-post-text mil-up mil-mb-30">High model accuracy in a notebook does not guarantee business value in production. Real systems must handle noisy inputs, feature drift, and changing user behavior.</p>
                                         <div class="mil-link mil-dark mil-arrow-place mil-up">
                                             <span>Read more</span>
                                         </div>
@@ -497,11 +553,8 @@
 
                                             <nav class="mil-footer-menu mil-mb-60">
                                                 <ul>
-                                                    <li class="mil-up mil-active">
-                                                        <a href="/">Home</a>
-                                                    </li>
                                                     <li class="mil-up">
-                                                        <a href="portfolio-1">Portfolio</a>
+                                                        <a href="/">Home</a>
                                                     </li>
                                                     <li class="mil-up">
                                                         <a href="services">Services</a>
@@ -512,7 +565,7 @@
                                                     <li class="mil-up">
                                                         <a href="contact">Contact</a>
                                                     </li>
-                                                    <li class="mil-up">
+                                                    <li class="mil-up mil-active">
                                                         <a href="blog">Blog</a>
                                                     </li>
                                                 </ul>
@@ -522,10 +575,10 @@
                                         <div class="col-md-6 col-lg-5">
 
                                             <ul class="mil-menu-list mil-up mil-mb-60">
-                                                <li><a href="#." class="mil-light-soft">Privacy Policy</a></li>
-                                                <li><a href="#." class="mil-light-soft">Terms and conditions</a></li>
-                                                <li><a href="#." class="mil-light-soft">Cookie Policy</a></li>
-                                                <li><a href="#." class="mil-light-soft">Careers</a></li>
+                                                <li><a href="privacy-policy" class="mil-light-soft">Privacy Policy</a></li>
+                                                <li><a href="terms-of-service" class="mil-light-soft">Terms of Service</a></li>
+                                                <li><a href="cookie-policy" class="mil-light-soft">Cookie Policy</a></li>
+                                                <li><a href="careers" class="mil-light-soft">Careers</a></li>
                                             </ul>
 
                                         </div>
@@ -542,8 +595,8 @@
 
                                             <h6 class="mil-muted mil-up mil-mb-30">Bangladesh</h6>
 
-                                            <p class="mil-light-soft mil-up">Dhaka, Bangladesh <span
-                                                    class="mil-no-wrap">+880 1793-268944</span></p>
+                                            <p class="mil-light-soft mil-up">Block A, House 09, Road 02, Mirpur 11, Dhaka 1216 <span
+                                                    class="mil-no-wrap">+880 1840-038755</span></p>
 
                                         </div>
                                         <div class="col-md-6 col-lg-5 mil-mb-60">
@@ -568,8 +621,7 @@
                                                             class="fab fa-linkedin-in"></i></a></li>
                                             </ul>
                                         </div>
-                                        <p class="mil-light-soft mil-up">© Copyright 2026 - FazeSoft. All Rights
-                                            Reserved.</p>
+                                        <p class="mil-light-soft mil-up">&copy; Copyright 2026 - FazeSoft. All Rights Reserved.</p>
                                     </div>
 
                                 </div>

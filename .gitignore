@@ -1,5 +1,34 @@
 about_fazesoft.pdf
 
+# Environment & Secret Protection
+.env
+.env.*
+.env.local
+*.env
+
+# Vercel & Deployment Artifacts
+.vercel
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Python & Temporary Diagnostic Files
+__pycache__/
+*.py[cod]
+*$py.class
+check_*.py
+test_*.py
+validate_*.py
+inspect_*.py
+audit_*.py
+scan_*.py
+fix_*.py
+probe_*.py
+apply_*.py
+list_*.py
+*.tmp
+
 # Interview Materials (Sensitive Hiring Information)
 Interview_Resumes/
 INTERVIEW_GUIDE.md

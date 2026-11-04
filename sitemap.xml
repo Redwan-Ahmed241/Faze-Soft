@@ -46,6 +46,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.fazesoft.com/publication</loc>
+    <lastmod>2026-11-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.fazesoft.com/careers</loc>
+    <lastmod>2026-11-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.fazesoft.com/home-2</loc>
     <lastmod>2026-11-04</lastmod>
     <priority>0.6</priority>
@@ -129,5 +139,20 @@
     <loc>https://www.fazesoft.com/blog-10</loc>
     <lastmod>2026-11-04</lastmod>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.fazesoft.com/privacy-policy</loc>
+    <lastmod>2026-11-04</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.fazesoft.com/terms-of-service</loc>
+    <lastmod>2026-11-04</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.fazesoft.com/cookie-policy</loc>
+    <lastmod>2026-11-04</lastmod>
+    <priority>0.5</priority>
   </url>
 </urlset>
