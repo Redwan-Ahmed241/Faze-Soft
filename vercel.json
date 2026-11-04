@@ -1,9 +1,70 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/home-1",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
-    { "source": "/", "destination": "/home-1" },
-    { "source": "/portal", "destination": "/client-portal" },
-    { "source": "/ems", "destination": "https://faze-soft-ems.vercel.app/" },
-    { "source": "/ems/:path*", "destination": "https://faze-soft-ems.vercel.app/:path*" }
+    {
+      "source": "/",
+      "destination": "/home-1"
+    },
+    {
+      "source": "/portal",
+      "destination": "/client-portal"
+    },
+    {
+      "source": "/ems",
+      "destination": "https://faze-soft-ems.vercel.app/"
+    },
+    {
+      "source": "/ems/:path*",
+      "destination": "https://faze-soft-ems.vercel.app/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(img|fonts)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(css|js)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/nav",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
   ]
 }

@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /nav.html
+Disallow: /nav
 
-# Sitemap
 Sitemap: https://www.fazesoft.com/sitemap.xml
