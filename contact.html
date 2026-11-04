@@ -19,6 +19,9 @@
     <link rel="manifest" href="site.webmanifest">
 
     <!-- bootstrap grid css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..700&display=swap">
     <link rel="stylesheet" href="css/plugins/bootstrap-grid.css">
     <!-- font awesome css -->
     <link rel="stylesheet" href="css/plugins/font-awesome.min.css">
@@ -301,15 +304,16 @@
                 <section id="contact">
                     <div class="container mil-p-120-90">
                         <h3 class="mil-center mil-up mil-mb-120">Let's <span class="mil-thin">Talk</span></h3>
-                        <form class="row align-items-center">
+                        <form class="row align-items-center" data-fs-form="contact">
+                            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="mil-hp">
                             <div class="col-lg-6 mil-up">
-                                <input type="text" placeholder="What's your name">
+                                <input type="text" name="name" required autocomplete="name" aria-label="Your name" placeholder="What's your name *">
                             </div>
                             <div class="col-lg-6 mil-up">
-                                <input type="email" placeholder="Your Email">
+                                <input type="email" name="email" required autocomplete="email" aria-label="Your email" placeholder="Your email *">
                             </div>
                             <div class="col-lg-12 mil-up">
-                                <textarea placeholder="Tell us about our project"></textarea>
+                                <textarea name="message" required aria-label="Your message" placeholder="Tell us about your project *"></textarea>
                             </div>
                             <div class="col-lg-8">
                                 <p class="mil-up mil-mb-30"><span class="mil-accent">*</span> We promise not to disclose
@@ -321,6 +325,10 @@
                                         <span>Send message</span>
                                     </button>
                                 </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <p class="mil-up mil-mb-30">Ready to start? <a href="client-portal#packages" class="mil-accent">Compare our packages and book one here</a>.</p>
+                                <div class="mil-form-status" role="status" aria-live="polite"></div>
                             </div>
                         </form>
                     </div>
@@ -338,10 +346,11 @@
 
                                     <p class="mil-light-soft mil-up mil-mb-30">Subscribe to our newsletter:</p>
 
-                                    <form class="mil-subscribe-form mil-up">
-                                        <input type="text" placeholder="Enter our email">
+                                    <form class="mil-subscribe-form mil-up" data-fs-form="newsletter" novalidate>
+                                        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="mil-hp">
+                                        <input type="email" name="email" required autocomplete="email" aria-label="Your email address" placeholder="Enter your email">
                                         <button type="submit"
-                                            class="mil-button mil-icon-button-sm mil-arrow-place"></button>
+                                            class="mil-button mil-icon-button-sm mil-arrow-place" aria-label="Subscribe"></button>
                                     </form>
 
                                 </div>

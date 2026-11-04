@@ -24,6 +24,9 @@
     <meta property="og:type" content="website">
 
     <!-- bootstrap grid css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..700&display=swap">
     <link rel="stylesheet" href="css/plugins/bootstrap-grid.css">
     <!-- font awesome css -->
     <link rel="stylesheet" href="css/plugins/font-awesome.min.css">
@@ -339,6 +342,7 @@
 
                     <!-- package overview & pricing section -->
                     <section id="packages">
+                    <span id="compare"></span>
                         <div class="mi-invert-fix">
                             <div class="container mil-p-120-90">
                                 <div class="row justify-content-between align-items-center mil-mb-60">
@@ -430,7 +434,7 @@
                                             <h2 class="mil-muted mil-up mil-mb-20">PACKAGE 1: <br><span class="mil-thin">LAUNCH SYSTEM</span></h2>
                                             <p class="mil-link mil-accent mil-up mil-mb-30" style="font-size: 15px;">For businesses that need a professional online presence</p>
                                             <div class="mil-up mil-mb-30">
-                                                <a href="#onboarding" class="mil-button mil-arrow-place" onclick="setPackage('Package 1: Launch System ($999)')">
+                                                <a href="#onboarding" class="mil-button mil-arrow-place" data-package="Package 1: Launch System ($999)">
                                                     <span>Get Started &bull; $999</span>
                                                 </a>
                                             </div>
@@ -511,7 +515,7 @@
                                             <h3 class="mil-muted mil-up mil-mb-30">Also <span class="mil-thin">Included</span> in Launch System</h3>
                                             <p class="mil-light-soft mil-up mil-mb-30">Every Launch System build includes complete technical, speed, search, and support infrastructure out of the box with zero hidden monthly add-ons.</p>
                                             <div class="mil-up mil-mb-30">
-                                                <a href="#onboarding" class="mil-button mil-arrow-place" onclick="setPackage('Package 1: Launch System ($999)')">
+                                                <a href="#onboarding" class="mil-button mil-arrow-place" data-package="Package 1: Launch System ($999)">
                                                     <span>Reserve Launch ($999)</span>
                                                 </a>
                                             </div>
@@ -545,7 +549,7 @@
                                             <h2 class="mil-muted mil-up mil-mb-20">PACKAGE 2: <br><span class="mil-thin">GROWTH SYSTEM</span></h2>
                                             <p class="mil-link mil-accent mil-up mil-mb-30" style="font-size: 15px;">For businesses that want more customers and better ranking</p>
                                             <div class="mil-up mil-mb-30">
-                                                <a href="#onboarding" class="mil-button mil-arrow-place" onclick="setPackage('Package 2: Growth System ($1,499)')">
+                                                <a href="#onboarding" class="mil-button mil-arrow-place" data-package="Package 2: Growth System ($1,499)">
                                                     <span>Get Started &bull; $1,499</span>
                                                 </a>
                                             </div>
@@ -638,7 +642,7 @@
                                                 </div>
                                             </div>
                                             <div class="mil-up mil-mb-30">
-                                                <a href="#onboarding" class="mil-button mil-arrow-place" onclick="setPackage('Package 2: Growth System ($1,499)')">
+                                                <a href="#onboarding" class="mil-button mil-arrow-place" data-package="Package 2: Growth System ($1,499)">
                                                     <span>Reserve Growth ($1,499)</span>
                                                 </a>
                                             </div>
@@ -672,7 +676,7 @@
                                             <h2 class="mil-muted mil-up mil-mb-20">PACKAGE 3: <br><span class="mil-thin">MARKET LEADER SYSTEM</span></h2>
                                             <p class="mil-link mil-accent mil-up mil-mb-30" style="font-size: 15px;">For businesses that want to dominate their market</p>
                                             <div class="mil-up mil-mb-30">
-                                                <a href="#onboarding" class="mil-button mil-arrow-place" onclick="setPackage('Package 3: Market Leader System ($3,499)')">
+                                                <a href="#onboarding" class="mil-button mil-arrow-place" data-package="Package 3: Market Leader System ($3,499)">
                                                     <span>Get Started &bull; $3,499</span>
                                                 </a>
                                             </div>
@@ -753,7 +757,7 @@
                                                 </div>
                                             </div>
                                             <div class="mil-up mil-mb-30">
-                                                <a href="#onboarding" class="mil-button mil-arrow-place" onclick="setPackage('Package 3: Market Leader System ($3,499)')">
+                                                <a href="#onboarding" class="mil-button mil-arrow-place" data-package="Package 3: Market Leader System ($3,499)">
                                                     <span>Reserve Market Leader ($3,499)</span>
                                                 </a>
                                             </div>
@@ -931,7 +935,6 @@
                         </div>
                     </div>
                 </section>
-                </div>
                 <!-- FAQ end -->
 
                 <!-- client onboarding / order inquiry form (dark section matching contact.html) -->
@@ -941,7 +944,8 @@
                             <h3 class="mil-center mil-muted mil-up mil-mb-30">Reserve Your <span class="mil-thin">System Kickoff</span></h3>
                             <p class="mil-center mil-light-soft mil-up mil-mb-90">Select your preferred system package and provide your business details below.<br>Our engineering team responds within 12 hours with onboarding documentation and kickoff scheduling.</p>
                             
-                            <form id="clientPortalForm" class="row align-items-center">
+                            <form id="clientPortalForm" class="row align-items-center" data-fs-form="booking">
+                                <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="mil-hp">
                                 <div class="col-lg-12 mil-up mil-mb-30">
                                     <label for="packageSelect" class="mil-suptitle mil-accent mil-mb-15" style="display: block; font-size: 12px; letter-spacing: 2px;">
                                         Select System Package *
@@ -971,19 +975,19 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mil-up">
-                                    <input type="text" name="name" required placeholder="What's your name *">
+                                    <input type="text" name="name" required autocomplete="name" aria-label="Your name" placeholder="What's your name *">
                                 </div>
                                 <div class="col-lg-6 mil-up">
-                                    <input type="email" name="email" required placeholder="Your Work Email *">
+                                    <input type="email" name="email" required autocomplete="email" aria-label="Your work email" placeholder="Your Work Email *">
                                 </div>
                                 <div class="col-lg-6 mil-up">
-                                    <input type="text" name="company" required placeholder="Company / Business Name *">
+                                    <input type="text" name="company" required autocomplete="organization" aria-label="Company name" placeholder="Company / Business Name *">
                                 </div>
                                 <div class="col-lg-6 mil-up">
-                                    <input type="text" name="domain" placeholder="Current or Desired Domain (optional)">
+                                    <input type="text" name="domain" aria-label="Domain" placeholder="Current or Desired Domain (optional)">
                                 </div>
                                 <div class="col-lg-12 mil-up">
-                                    <textarea name="message" placeholder="Tell us about your project or specific requirements..."></textarea>
+                                    <textarea name="message" aria-label="Project details" placeholder="Tell us about your project or specific requirements..."></textarea>
                                 </div>
                                 <div class="col-lg-8">
                                     <p class="mil-up mil-mb-30 mil-light-soft"><span class="mil-accent">*</span> Full source code ownership upon delivery. No hidden fees. Direct developer response guaranteed within 12 hours.</p>
@@ -996,7 +1000,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
-                                    <div id="formStatus" class="mil-up" style="display: none; padding: 20px 0; color: #ff9800;"></div>
+                                    <div id="formStatus" class="mil-form-status" role="status" aria-live="polite"></div>
                                 </div>
                             </form>
                         </div>
@@ -1015,8 +1019,9 @@
 
                                     <p class="mil-light-soft mil-up mil-mb-30">Subscribe to our newsletter:</p>
 
-                                    <form class="mil-subscribe-form mil-up">
-                                        <input type="email" placeholder="Enter our email" required>
+                                    <form class="mil-subscribe-form mil-up" data-fs-form="newsletter" novalidate>
+                                        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="mil-hp">
+                                        <input type="email" name="email" required autocomplete="email" aria-label="Your email address" placeholder="Enter your email">
                                         <button type="submit" class="mil-button mil-icon-button-sm mil-arrow-place" aria-label="Subscribe"></button>
                                     </form>
 
@@ -1188,43 +1193,6 @@
     <!-- fazesoft js -->
     <script src="js/main.js"></script>
 
-    <script>
-    function setPackage(pkgValue) {
-        var sel = document.getElementById('packageSelect');
-        if (sel) {
-            for (var i = 0; i < sel.options.length; i++) {
-                if (sel.options[i].value.indexOf(pkgValue.split('(')[0].trim()) !== -1) {
-                    sel.selectedIndex = i;
-                    break;
-                }
-            }
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        var form = document.getElementById('clientPortalForm');
-        var status = document.getElementById('formStatus');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                var btn = form.querySelector('button[type="submit"]');
-                btn.innerHTML = '<span>Submitting...</span>';
-                btn.disabled = true;
-                
-                var formData = new FormData(form);
-                var pkg = formData.get('package');
-                var name = formData.get('name');
-                
-                setTimeout(function() {
-                    status.style.display = 'block';
-                    status.innerHTML = '<p class="mil-light" style="font-size: 16px;"><strong>Thank you, ' + name + '!</strong><br>Your kickoff request for <strong>' + pkg + '</strong> has been received. Our engineering team will review your brief and contact you via email within 12 hours with onboarding documentation.</p>';
-                    btn.innerHTML = '<span>Request Sent &check;</span>';
-                    form.reset();
-                }, 1000);
-            });
-        }
-    });
-    </script>
 
 </body>
 

@@ -19,6 +19,9 @@
     <link rel="manifest" href="site.webmanifest">
 
     <!-- bootstrap grid css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..700&display=swap">
     <link rel="stylesheet" href="css/plugins/bootstrap-grid.css">
     <!-- font awesome css -->
     <link rel="stylesheet" href="css/plugins/font-awesome.min.css">
@@ -418,10 +421,11 @@
 
                                     <p class="mil-light-soft mil-up mil-mb-30">Subscribe to our newsletter:</p>
 
-                                    <form class="mil-subscribe-form mil-up">
-                                        <input type="text" placeholder="Enter our email">
+                                    <form class="mil-subscribe-form mil-up" data-fs-form="newsletter" novalidate>
+                                        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="mil-hp">
+                                        <input type="email" name="email" required autocomplete="email" aria-label="Your email address" placeholder="Enter your email">
                                         <button type="submit"
-                                            class="mil-button mil-icon-button-sm mil-arrow-place"></button>
+                                            class="mil-button mil-icon-button-sm mil-arrow-place" aria-label="Subscribe"></button>
                                     </form>
 
                                 </div>

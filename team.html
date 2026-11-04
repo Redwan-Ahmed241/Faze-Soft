@@ -19,6 +19,9 @@
     <link rel="manifest" href="site.webmanifest">
 
     <!-- bootstrap grid css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..700&display=swap">
     <link rel="stylesheet" href="css/plugins/bootstrap-grid.css">
     <!-- font awesome css -->
     <link rel="stylesheet" href="css/plugins/font-awesome.min.css">
@@ -303,7 +306,7 @@
                             <!-- 1. Shah Redwan Ahmed -->
                             <div class="col-sm-6 col-md-4 col-lg-3">
                                 <div class="mil-team-card mil-up mil-mb-30">
-                                    <img src="img/faces/Redwan-CTO.png" alt="Shah Redwan Ahmed">
+                                    <img src="img/faces/Redwan-CTO.webp" alt="Shah Redwan Ahmed">
                                     <div class="mil-description">
                                         <div class="mil-secrc-text">
                                             <h5 class="mil-muted mil-mb-5"><a href="home-2">Shah Redwan Ahmed</a></h5>
@@ -360,7 +363,7 @@
                             <!-- 4. Ejaz Uddin Swaron -->
                             <div class="col-sm-6 col-md-4 col-lg-3">
                                 <div class="mil-team-card mil-up mil-mb-30">
-                                    <img src="img/faces/Swaron.jpeg" alt="Ejaz Uddin Swaron">
+                                    <img src="img/faces/Swaron.webp" alt="Ejaz Uddin Swaron">
                                     <div class="mil-description">
                                         <div class="mil-secrc-text">
                                             <h5 class="mil-muted mil-mb-5"><a href="#.">Ejaz Uddin Swaron</a></h5>
@@ -379,7 +382,7 @@
                             <!-- 5. Ibnul Tahsin Rihan -->
                             <div class="col-sm-6 col-md-4 col-lg-3">
                                 <div class="mil-team-card mil-up mil-mb-30">
-                                    <img src="img/faces/Ibnul-Tahsin-Rihan.jpeg" alt="Ibnul Tahsin Rihan">
+                                    <img src="img/faces/Ibnul-Tahsin-Rihan.webp" alt="Ibnul Tahsin Rihan">
                                     <div class="mil-description">
                                         <div class="mil-secrc-text">
                                             <h5 class="mil-muted mil-mb-5"><a href="#.">Ibnul Tahsin Rihan</a></h5>
@@ -399,7 +402,7 @@
                             <!-- 6. Mir Mohammad Mohiuddin -->
                             <div class="col-sm-6 col-md-4 col-lg-3">
                                 <div class="mil-team-card mil-up mil-mb-30">
-                                    <img src="img/faces/Mir Mohammad Mohiuddin.png" alt="Mir Mohammad Mohiuddin">
+                                    <img src="img/faces/Mir Mohammad Mohiuddin.webp" alt="Mir Mohammad Mohiuddin">
                                     <div class="mil-description">
                                         <div class="mil-secrc-text">
                                             <h5 class="mil-muted mil-mb-5"><a href="#.">Mir Mohammad Mohiuddin</a></h5>
@@ -418,7 +421,7 @@
                             <!-- 7. Fowad Morshad -->
                             <div class="col-sm-6 col-md-4 col-lg-3">
                                 <div class="mil-team-card mil-up mil-mb-30">
-                                    <img src="img/faces/FowadMorshad.jpeg" alt="Fowad Morshad">
+                                    <img src="img/faces/FowadMorshad.webp" alt="Fowad Morshad">
                                     <div class="mil-description">
                                         <div class="mil-secrc-text">
                                             <h5 class="mil-muted mil-mb-5"><a href="#.">Fowad Morshad</a></h5>
@@ -454,7 +457,7 @@
                             <!-- 1. Shakib -->
                             <div class="col-sm-6 col-md-4 col-lg-3">
                                 <div class="mil-team-card mil-up mil-mb-30">
-                                    <img src="img/faces/Shakib-Bhai.jpg" alt="Shakib">
+                                    <img src="img/faces/Shakib-Bhai.webp" alt="Shakib">
                                     <div class="mil-description">
                                         <div class="mil-secrc-text">
                                             <h5 class="mil-muted mil-mb-5"><a href="#.">Shakib</a></h5>
@@ -472,7 +475,7 @@
                             <!-- 2. Tazul Islam Rian (Temporarily Commented Out)
                             <div class="col-sm-6 col-md-4 col-lg-3">
                                 <div class="mil-team-card mil-up mil-mb-30">
-                                    <img src="img/faces/Tazul Islam Rian.png" alt="Tazul Islam Rian">
+                                    <img src="img/faces/Tazul Islam Rian.webp" alt="Tazul Islam Rian">
                                     <div class="mil-description">
                                         <div class="mil-secrc-text">
                                             <h5 class="mil-muted mil-mb-5"><a href="#.">Tazul Islam Rian</a></h5>
@@ -490,7 +493,7 @@
                             <!-- 3. Diganto Mollick -->
                             <div class="col-sm-6 col-md-4 col-lg-3">
                                 <div class="mil-team-card mil-up mil-mb-30">
-                                    <img src="img/faces/Diganto Mollick.png" alt="Diganto Mollick">
+                                    <img src="img/faces/Diganto Mollick.webp" alt="Diganto Mollick">
                                     <div class="mil-description">
                                         <div class="mil-secrc-text">
                                             <h5 class="mil-muted mil-mb-5"><a href="#.">Diganto Mollick</a></h5>
@@ -541,10 +544,11 @@
 
                                     <p class="mil-light-soft mil-up mil-mb-30">Subscribe to our newsletter:</p>
 
-                                    <form class="mil-subscribe-form mil-up">
-                                        <input type="text" placeholder="Enter our email">
+                                    <form class="mil-subscribe-form mil-up" data-fs-form="newsletter" novalidate>
+                                        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="mil-hp">
+                                        <input type="email" name="email" required autocomplete="email" aria-label="Your email address" placeholder="Enter your email">
                                         <button type="submit"
-                                            class="mil-button mil-icon-button-sm mil-arrow-place"></button>
+                                            class="mil-button mil-icon-button-sm mil-arrow-place" aria-label="Subscribe"></button>
                                     </form>
 
                                 </div>
