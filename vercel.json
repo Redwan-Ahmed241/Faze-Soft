@@ -5,6 +5,46 @@
       "source": "/home-1",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/terms-and-conditions",
+      "destination": "/terms-of-service",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms-of-service",
+      "permanent": true
+    },
+    {
+      "source": "/cookies",
+      "destination": "/cookie-policy",
+      "permanent": true
+    },
+    {
+      "source": "/careers.html",
+      "destination": "/careers",
+      "permanent": true
+    },
+    {
+      "source": "/career",
+      "destination": "/careers",
+      "permanent": true
+    },
+    {
+      "source": "/jobs",
+      "destination": "/careers",
+      "permanent": true
+    },
+    {
+      "source": "/hiring",
+      "destination": "/careers",
+      "permanent": true
     }
   ],
   "rewrites": [
