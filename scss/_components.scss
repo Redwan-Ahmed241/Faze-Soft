@@ -1612,7 +1612,7 @@ revievs
             height: 90px;
             border-radius: 50%;
             background-size: cover;
-            background-position: top;
+            background-position: center;
             transition: $t-md !important;
 
             @media screen and (max-width: 992px) {
@@ -1622,15 +1622,17 @@ revievs
 
 
             &.mil-slide-1 {
-                background-image: url(../img/faces/customers/1.jpg);
+                background-image: url("../img/faces/customers/Naiem Martin.webp");
             }
 
             &.mil-slide-2 {
-                background-image: url(../img/faces/customers/2.jpg);
+                background-image: url("../img/faces/customers/nas.jpg");
+                background-position: center 20% !important;
             }
 
             &.mil-slide-3 {
-                background-image: url(../img/faces/customers/3.jpg);
+                background-image: url("../img/faces/customers/ashraful-alam-imon.jpg");
+                background-position: center !important;
             }
 
             &.mil-slide-4 {
@@ -1714,6 +1716,11 @@ revievs
         left: 0;
         width: 100%;
         justify-content: space-between;
+        pointer-events: none;
+
+        .mil-slider-arrow {
+            pointer-events: auto;
+        }
 
         @media screen and (max-width: 992px) {
             top: 0;

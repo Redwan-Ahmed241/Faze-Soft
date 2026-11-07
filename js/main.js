@@ -447,24 +447,113 @@ $(function () {
 
     ***************************/
 
-    var menu = ['<div class="mil-custom-dot mil-slide-1"></div>', '<div class="mil-custom-dot mil-slide-2"></div>', '<div class="mil-custom-dot mil-slide-3"></div>', '<div class="mil-custom-dot mil-slide-4"></div>', '<div class="mil-custom-dot mil-slide-5"></div>', '<div class="mil-custom-dot mil-slide-6"></div>', '<div class="mil-custom-dot mil-slide-7"></div>']
-    var mySwiper = new Swiper('.mil-reviews-slider', {
-        // If we need pagination
-        pagination: {
-            el: '.mil-revi-pagination',
-            clickable: true,
-            renderBullet: function (index, className) {
-                return '<span class="' + className + '">' + (menu[index]) + '</span>';
+    var reviewsAutoplayTimer = null;
+    function initReviewsSlider() {
+        var $slider = $('.mil-reviews-slider');
+        if (!$slider.length) return;
+
+        // Clean up any existing running timer
+        if (reviewsAutoplayTimer) {
+            clearTimeout(reviewsAutoplayTimer);
+            reviewsAutoplayTimer = null;
+        }
+
+        var menu = [
+            '<div class="mil-custom-dot mil-slide-1"></div>',
+            '<div class="mil-custom-dot mil-slide-2"></div>',
+            '<div class="mil-custom-dot mil-slide-3"></div>'
+        ];
+
+        var AUTOPLAY_DELAY = 3900; // Optimal ~4s reading time (3800-4000ms)
+        var TRANSITION_SPEED = 600; // Snappy, crisp 600ms crossfade
+        var isHovered = false;
+
+        var mySwiper = new Swiper('.mil-reviews-slider', {
+            pagination: {
+                el: '.mil-revi-pagination',
+                clickable: true,
+                renderBullet: function (index, className) {
+                    var dot = menu[index] || ('<div class="mil-custom-dot mil-slide-' + (index + 1) + '"></div>');
+                    return '<span class="' + className + '">' + dot + '</span>';
+                },
             },
-        },
-        speed: 800,
-        effect: 'fade',
-        parallax: true,
-        navigation: {
-            nextEl: '.mil-revi-next',
-            prevEl: '.mil-revi-prev',
-        },
-    })
+            speed: TRANSITION_SPEED,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            loop: false,
+        });
+
+        function clearAutoplayTimer() {
+            if (reviewsAutoplayTimer) {
+                clearTimeout(reviewsAutoplayTimer);
+                reviewsAutoplayTimer = null;
+            }
+        }
+
+        function scheduleNextSlide() {
+            clearAutoplayTimer();
+            if (isHovered) return; // Do not schedule while user is actively hovering over review text
+
+            reviewsAutoplayTimer = setTimeout(function () {
+                if (!mySwiper || mySwiper.destroyed || isHovered) return;
+                var total = mySwiper.slides ? mySwiper.slides.length : 3;
+                if (total <= 1) return;
+                var nextIndex = (mySwiper.activeIndex + 1) % total;
+                mySwiper.slideTo(nextIndex, TRANSITION_SPEED);
+            }, AUTOPLAY_DELAY);
+        }
+
+        // When transition completes (via autoplay, bullet click, or arrow click), schedule next tick
+        mySwiper.on('slideChangeTransitionEnd', function () {
+            scheduleNextSlide();
+        });
+
+        // Wrap-around arrow navigation with immediate slideTo and clean timer reset
+        $('.mil-revi-next').off('click.reviews').on('click.reviews', function (e) {
+            e.preventDefault();
+            if (!mySwiper || mySwiper.destroyed) return;
+            clearAutoplayTimer();
+            var total = mySwiper.slides ? mySwiper.slides.length : 3;
+            var nextIndex = (mySwiper.activeIndex + 1) % total;
+            mySwiper.slideTo(nextIndex, TRANSITION_SPEED);
+            scheduleNextSlide();
+        });
+
+        $('.mil-revi-prev').off('click.reviews').on('click.reviews', function (e) {
+            e.preventDefault();
+            if (!mySwiper || mySwiper.destroyed) return;
+            clearAutoplayTimer();
+            var total = mySwiper.slides ? mySwiper.slides.length : 3;
+            var prevIndex = (mySwiper.activeIndex - 1 + total) % total;
+            mySwiper.slideTo(prevIndex, TRANSITION_SPEED);
+            scheduleNextSlide();
+        });
+
+        // Clear timer immediately on pagination bullet click to prevent mid-animation ticks
+        $(document).off('click.reviewsBullet', '.mil-revi-pagination .swiper-pagination-bullet')
+            .on('click.reviewsBullet', '.mil-revi-pagination .swiper-pagination-bullet', function () {
+                clearAutoplayTimer();
+            });
+
+        // Hover-pause ONLY when hovering directly over the review text/card area
+        $slider
+            .off('mouseenter.reviews mouseleave.reviews')
+            .on('mouseenter.reviews', function () {
+                isHovered = true;
+                clearAutoplayTimer();
+            })
+            .on('mouseleave.reviews', function () {
+                isHovered = false;
+                scheduleNextSlide();
+            });
+
+        // Start initial cycle
+        scheduleNextSlide();
+    }
+
+    initReviewsSlider();
 
     /***************************
 
@@ -893,24 +982,7 @@ $(function () {
 
         ***************************/
 
-        var menu = ['<div class="mil-custom-dot mil-slide-1"></div>', '<div class="mil-custom-dot mil-slide-2"></div>', '<div class="mil-custom-dot mil-slide-3"></div>', '<div class="mil-custom-dot mil-slide-4"></div>', '<div class="mil-custom-dot mil-slide-5"></div>', '<div class="mil-custom-dot mil-slide-6"></div>', '<div class="mil-custom-dot mil-slide-7"></div>']
-        var mySwiper = new Swiper('.mil-reviews-slider', {
-            // If we need pagination
-            pagination: {
-                el: '.mil-revi-pagination',
-                clickable: true,
-                renderBullet: function (index, className) {
-                    return '<span class="' + className + '">' + (menu[index]) + '</span>';
-                },
-            },
-            speed: 800,
-            effect: 'fade',
-            parallax: true,
-            navigation: {
-                nextEl: '.mil-revi-next',
-                prevEl: '.mil-revi-prev',
-            },
-        })
+        initReviewsSlider();
 
         /***************************
 

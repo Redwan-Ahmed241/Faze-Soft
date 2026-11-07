@@ -3123,7 +3123,7 @@ revievs
   height: 90px;
   border-radius: 50%;
   background-size: cover;
-  background-position: top;
+  background-position: center;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1) !important;
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1) !important;
 }
@@ -3140,11 +3140,13 @@ revievs
 }
 
 .mil-revi-pagination .swiper-pagination-bullet .mil-custom-dot.mil-slide-2 {
-  background-image: url(../img/faces/customers/2.jpg);
+  background-image: url("../img/faces/customers/nas.jpg");
+  background-position: center 20% !important;
 }
 
 .mil-revi-pagination .swiper-pagination-bullet .mil-custom-dot.mil-slide-3 {
-  background-image: url(../img/faces/customers/3.jpg);
+  background-image: url("../img/faces/customers/ashraful-alam-imon.jpg");
+  background-position: center !important;
 }
 
 .mil-revi-pagination .swiper-pagination-bullet .mil-custom-dot.mil-slide-4 {
@@ -3230,6 +3232,11 @@ revievs
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  pointer-events: none;
+}
+
+.mil-slider-nav.mil-reviews-nav .mil-slider-arrow {
+  pointer-events: auto;
 }
 
 @media screen and (max-width: 992px) {
